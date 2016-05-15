@@ -31,5 +31,13 @@
   실행 : java 파일명, .class는 제외
 
 character & string
-  '' : 문자
-  "" : 문자열
+  '문' : 문자
+  "문자열" : 문자열
+  결합 : "문자"+"열입니다"
+  escape : \, "blitz said \"This is Java\"" == blitz said "This is Java"
+  줄바꿈 : \n
+
+variable
+  정수 : int
+  실수 : double
+  문자 : String
