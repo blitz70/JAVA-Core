@@ -1,21 +1,44 @@
-﻿사용방식
-  소스코드 : 파일명.java
-  컴파일 : javac 파일명.java, 결과는 class의 이름이 파일명이 됨
-  실행 : java 파일명, .class는 제외
-
-Datatype
+Datatype : 데이터형
   character & string
     '문' : 문자
     "문자열" : 문자열
     결합 : "문자"+"열입니다"
     escape : \, "blitz said \"This is Java\"" == blitz said "This is Java"
     줄바꿈 : \n
-  number & variable
-    정수(int) : byte(1), short(2 byte), int(4 byte), long(8 byte)
-    실수(double) : float(4 byte), double(8 byte)
-    문자 : char(2 byte), String(2 byte 배수)
+  datatype 
+    정수 : int 기본
+      byte(1), short(2 byte), int(4 byte), long(8 byte)
+    실수 : double 기본
+      float(4 byte), double(8 byte)
+    문자
+      char(2 byte), String(2 byte 배수)
+    variable(변수)
+	  int a; double b
+	constant(상수)
+	  int a = 200; double b = 12345;
+	  long c = 12345L; float d = 12345F;
+  conversion : 형변환
+  	implicit(자동/암시적) : 데이터 손실이 없을 경우 실행.
+  	  byte -> short/char -> int -> long -> float ->double
+  	explicit(명시적)
+  	  int a = (int) 100.0F;
 
-comment : single(// ...), multi(/* ... */), JavaDoc(/** ... */)
+Comment : 주석
+	single(// ...), multi(/* ... */), JavaDoc(/** ... */)
+
+Operator
+  arithmetic : + - * / %
+    + : 문자열 합하기에도 사용
+    5%3 = 2
+  unary : 단항, -10, ++i, i--
+    a + b는 binary(이항)
+  compare : equal(==), not equal(!=), greater(>), greaterequal(>=), <, <=
+  
+
+사용방식
+  소스코드 : 파일명.java
+  컴파일 : javac 파일명.java, 결과는 class의 이름이 파일명이 됨
+  실행 : java 파일명, .class는 제외
 
 Install(Linux)
   Previous version 삭제
@@ -43,3 +66,6 @@ Install(Linux)
   Windows
     Path : bin 디렉토리 추가
     환경변수 : JAVA_HOME 생성 및 path(bin 제외) 추가
+    
+Eclipse
+  eclipse java macros
