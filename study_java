@@ -1,4 +1,7 @@
-Datatype : 데이터형
+General
+  Comment : 주석, single(// ...), multi(/* ... */), JavaDoc(/** ... */)
+
+Datatype/데이터형
   character & string
     '문' : 문자
     "문자열" : 문자열
@@ -23,17 +26,27 @@ Datatype : 데이터형
   	explicit(명시적)
   	  int a = (int) 100.0F;
 
-Comment : 주석
-	single(// ...), multi(/* ... */), JavaDoc(/** ... */)
-
-Operator
+Operator/연산자
   arithmetic : + - * / %
     + : 문자열 합하기에도 사용
     5%3 = 2
   unary : 단항, -10, ++i, i--
     a + b는 binary(이항)
   compare : equal(==), not equal(!=), greater(>), greaterequal(>=), <, <=
-  
+
+Condtion/조건문
+  IF문 : if (조건1) {코드1} else if (조건2) {코드2} ... else {코드}
+  SWITCH 문: switch (변수) {case 변수:코드;break; ...}
+
+Loop/반복문
+  WHILE 문 : while (조건) {코드};
+  FOR 문 : for (초기화; 조건; 실행) {코드}
+  FOREACH 문 : for (배열원소:배열) {코드}
+
+Array/배열
+  정의 : 데이터형[] 변수명 = {a1, a2...}; 데이터형[] 변수명 = new 데이터형[크기];
+  한계 : 정의 할때 크기가 지정되며 사용시 범위를 넘으면 안됨.(collection)
+  Eg : String[] sentence = {"This","is","a","sentence"};
 
 사용방식
   소스코드 : 파일명.java
