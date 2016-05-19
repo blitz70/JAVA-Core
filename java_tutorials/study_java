@@ -44,14 +44,16 @@ Loop/반복문
   FOREACH 문 : for (배열원소:배열) {코드}
 
 Array/배열
-  정의 : 데이터형[] 변수명 = {a1, a2...}; 데이터형[] 변수명 = new 데이터형[크기];
+ 	정의 : 데이터형[] 변수명 = {a1, a2...}; 데이터형[] 변수명 = new 데이터형[크기];
   한계 : 정의 할때 크기가 지정되며 사용시 범위를 넘으면 안됨.(collection)
   Eg : String[] sentence = {"This","is","a","sentence"};
 
 사용방식
   소스코드 : 파일명.java
   컴파일 : javac 파일명.java, 결과는 class의 이름이 파일명이 됨
-  실행 : java 파일명, .class는 제외
+  실행 : java -cp classpath 패키지명.클래스명
+    class path : java/bin; package : kr.co.iamtek.java_tutorials.io; class : Input.class
+    java -cp java/bin kr.co.iamtek.java_tutorials.io.Input  
 
 Install(Linux)
   Previous version 삭제
