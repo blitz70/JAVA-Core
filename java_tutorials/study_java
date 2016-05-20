@@ -47,6 +47,15 @@ Array/배열
  	정의 : 데이터형[] 변수명 = {a1, a2...}; 데이터형[] 변수명 = new 데이터형[크기];
   한계 : 정의 할때 크기가 지정되며 사용시 범위를 넘으면 안됨.(collection)
   Eg : String[] sentence = {"This","is","a","sentence"};
+  
+Object/객체
+	class : 객체의 설계도
+	instance : 객체, 클래스타입 변수 = new 클래스명()
+	void : return이 없음
+	static : class property/method, instance와 별개로 존재
+	class/instance member
+		instance method -> class members
+		class method -x-> instance members
 
 사용방식
   소스코드 : 파일명.java
