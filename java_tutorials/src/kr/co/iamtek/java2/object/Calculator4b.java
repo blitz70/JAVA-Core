@@ -1,4 +1,3 @@
-
 package kr.co.iamtek.java2.object;
 
 public class Calculator4b {
