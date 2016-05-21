@@ -51,6 +51,7 @@ Array/배열
 Object/객체
 	class : 객체의 설계도
 	instance : 객체, 클래스타입 변수 = new 클래스명()
+	construct : 객체의 생성자, 클래스명과 동일한 메소드로 정의
 	void : return이 없음
 	static : class property/method, instance와 별개로 존재
 	class/instance member
