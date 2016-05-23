@@ -51,7 +51,11 @@ Array/배열
 Object/객체
 	class : 객체의 설계도
 	instance : 객체, 클래스타입 변수 = new 클래스명()
-	construct : 객체의 생성자, 클래스명과 동일한 메소드로 정의
+	constructor/생성자
+	 객체의 생성자, 객체를 생성할때 제일 처음 실행, 초기화 작업 실행.
+	 클래스명과 동일한 메소드로 직접 정의할수 있음.
+	 직접 정의 안하면 자동으로 만들어짐, 직접 정의 하면 기본 생성자를 직접 정의 해야함.
+	 상속 : sub class 생성시 super class의 기본 생성자 필수, super()
 	void : return이 없음
 	static : class property/method, instance와 별개로 존재
 	class/instance member
