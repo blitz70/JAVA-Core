@@ -5,6 +5,7 @@ class CalculatorOv3 {
 	double left, right;
 	double third;
 	
+	
 	public void setOperands(double left, double right){
 		this.left = left;
 		this.right = right;
@@ -14,6 +15,7 @@ class CalculatorOv3 {
 		this.setOperands(left, right);
 		this.third = third;
 	};
+	
 
 	public void sum() {
 		System.out.println(this.left + this.right + this.third);
