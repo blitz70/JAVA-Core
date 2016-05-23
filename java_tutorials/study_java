@@ -67,6 +67,12 @@ Object/객체
 	Inheritance/상속
 	  class 자식클래스 extends 부모클래스 {}
 	  부모(super, base), 자식(sub, derived)
+	  overriding
+	  	sub class를 super class와 다르게 하는 기능.
+	  	super class의 method를 redefine 하여 기능을 변경. (property?)
+	  	사용 조건 : 동일한 서명/signature, 메소드의 이름 매개변수 내용 리턴 타입 일치, super.메소드명
+	  	@Override : overriding 할 subclass 메소드를 명확하게 정의
+	  overloading 
 
 사용방식
   소스코드 : 파일명.java
