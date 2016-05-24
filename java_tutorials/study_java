@@ -77,12 +77,21 @@ Object/객체
 	  	부모 메소드와 비슷하지만 기능이 다른 자식 메소들이 부모 메소드와 같이 공존
 	  	자식 메소드 이름은 부모와 동일하고 매개변수 내용이 달라야함. 
 
-사용방식
-  소스코드 : 파일명.java
-  컴파일 : javac 파일명.java, 결과는 class의 이름이 파일명이 됨
-  실행 : java -cp classpath 패키지명.클래스명
-    class path : java/bin; package : kr.co.iamtek.java_tutorials.io; class : Input.class
-    java -cp java/bin kr.co.iamtek.java_tutorials.io.Input  
+Java execute
+  byte code/바이트코드 : 파일명.class
+  java -cp classpath 패키지명.클래스명
+    classpath : "java/bin", ".;path1;path2;path3", "." 현재 디렉토리, linux는 ";" 대신 ":" 사용
+    package : kr.co.iamtek.java_tutorials.io
+    class : Input.class
+    java -cp "java/bin" kr.co.iamtek.java_tutorials.io.Input  
+    
+Java compile
+  source code/소스코드 : 파일명.java
+  	소드코드는 ANSI로 저장 되어야 컴파일됨.
+  	소스코드의 각 클래스마다 개별 클래스 파일 생성 
+  javac 소스코드
+    soucecode : testing.java
+    javac testing.java -> testing.class
 
 Install(Linux)
   Previous version 삭제
@@ -109,7 +118,9 @@ Install(Linux)
     3 : . /etc/profile
   Windows
     Path : bin 디렉토리 추가
-    환경변수 : JAVA_HOME 생성 및 path(bin 제외) 추가
+    환경변수
+      JAVA_HOME 생성 및 path(bin 제외) 추가.
+      CLASSPATH 생성(사용자 변수?) 및 path 추가.
     
 Eclipse
   eclipse java macros
