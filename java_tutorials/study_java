@@ -77,6 +77,9 @@ Object/객체
 	  	부모 메소드와 비슷하지만 기능이 다른 자식 메소들이 부모 메소드와 같이 공존
 	  	자식 메소드 이름은 부모와 동일하고 매개변수 내용이 달라야함. 
 
+Package
+	import : 패키지 로드, 동일한 이름의 클래스들의 로드 조심.
+
 Java execute
   byte code/바이트코드 : 파일명.class
   java -cp classpath 패키지명.클래스명
