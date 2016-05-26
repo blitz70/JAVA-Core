@@ -78,7 +78,9 @@ Object/객체
 	  	자식 메소드 이름은 부모와 동일하고 매개변수 내용이 달라야함. 
 
 Package
-	import : 패키지 로드, 동일한 이름의 클래스들의 로드 조심.
+	구조 : root(project src & bin)/package/파일(*.java & *.class)
+	사용 : 패키지 로드, 동일한 이름의 클래스들의 로드 조심.
+		import kr.co.iamtek.java
 
 Java execute
   byte code/바이트코드 : 파일명.class
