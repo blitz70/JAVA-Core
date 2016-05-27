@@ -82,6 +82,16 @@ Package
 	사용 : 패키지 로드, 동일한 이름의 클래스들의 로드 조심.
 		import kr.co.iamtek.java
 
+Access Modifier(접근 제어자)
+	일반적으로 public 사용, 보안이 중요하면 private 사용.
+		public : 모두 사용/접근 가능.
+		protected : 같은 package, 다른 package 상속관계 사용/접근 가능. 
+		default : 같은 package만 사용/접근 가능.
+		private : 같은 class만 사용/접근 가능.
+	Class member : public > protected > default > private
+	Class : public > default
+		public일 경우 파일명 = 클래스명, only one public class exits per source code.
+
 Java execute
   byte code/바이트코드 : 파일명.class
   java -cp classpath 패키지명.클래스명
