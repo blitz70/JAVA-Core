@@ -82,15 +82,24 @@ Package
 	사용 : 패키지 로드, 동일한 이름의 클래스들의 로드 조심.
 		import kr.co.iamtek.java
 
-Access Modifier(접근 제어자)
-	일반적으로 public 사용, 보안이 중요하면 private 사용.
-		public : 모두 사용/접근 가능.
-		protected : 같은 package, 다른 package 상속관계 사용/접근 가능. 
-		default : 같은 package만 사용/접근 가능.
-		private : 같은 class만 사용/접근 가능.
-	Class member : public > protected > default > private
-	Class : public > default
-		public일 경우 파일명 = 클래스명, only one public class exits per source code.
+Modifier(제어자)
+	Access(접근)
+		기능 : 사용/접근 여부를 정하는 제어자.
+			public일 경우 파일명 = 클래스명, 즉 소스코드 하나당 public class가 한개만 존재 가능.
+		대상 : class, class member
+			Class member : public > protected > default > private
+			Class : public > default
+		종류 : 일반적으로 public 사용, 보안이 중요하면 private 사용.
+			public : 모두 사용/접근 가능.
+			protected : 같은 package, 다른 package 상속관계 사용/접근 가능. 
+			default : 같은 package만 사용/접근 가능.
+			private : 같은 class만 사용/접근 가능.
+	Abstract(추상화)
+		 기능 : 상속을 강제 하는 제어자.
+		 		부모 클래스는 형식만 정하고 상세 동작 방법은 자식 클래스에게 위임. 
+		 대상 : class, method
+		 		class : 추상 클래스는 직접 사용 못하고 상속을 통해서만 사용 가능.
+		 		method : 부모의 추상 메소드는 자식이 override 해서 사용. 
 
 Java execute
   byte code/바이트코드 : 파일명.class
