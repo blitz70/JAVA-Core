@@ -23,7 +23,7 @@ class Calculator {
 	};
 };
 
-public class ModifierAccessDemo2 {
+public class AccessDemo2 {
 
 	public static void main(String[] args) {
 		Calculator c1 = new Calculator();

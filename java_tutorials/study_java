@@ -99,7 +99,13 @@ Modifier(제어자)
 		 		부모 클래스는 형식만 정하고 상세 동작 방법은 자식 클래스에게 위임. 
 		 대상 : class, method
 		 		class : 추상 클래스는 직접 사용 못하고 상속을 통해서만 사용 가능.
-		 		method : 부모의 추상 메소드는 자식이 override 해서 사용. 
+		 		method : 부모의 추상 메소드는 자식이 override 해서 사용.
+	Final(최종)
+			기능 : 상속을 금지 하는 제어자, abstract의 반대.
+			대상 : class, class members
+				class : 최종 클래스는 자식 클래스를 생성 못함, 즉 상속이 불가능.
+				method : 자식 클래스에서 부모의 최종 메소드는 override이 불가능, overload는 가능.
+				field : final field의 값이 정해지면 변경이 불가능.
 
 Java execute
   byte code/바이트코드 : 파일명.class

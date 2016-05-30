@@ -12,7 +12,7 @@ class A {
 	};
 }
 
-public class ModifierAccessDemo1 {
+public class AccessDemo1 {
 
 	public static void main(String[] args) {
 		A a1 = new A();
