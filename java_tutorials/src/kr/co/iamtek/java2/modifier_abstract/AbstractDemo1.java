@@ -1,4 +1,4 @@
-package kr.co.iamtek.java2.modifer_abstract;
+package kr.co.iamtek.java2.modifier_abstract;
 
 abstract class A {
 	public abstract String b();									//추상 메소드, 본체{}가 없음.

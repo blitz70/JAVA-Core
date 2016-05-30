@@ -1,4 +1,4 @@
-package kr.co.iamtek.java2.modifer_abstract;
+package kr.co.iamtek.java2.modifier_abstract;
 
 abstract class Calculator {
 	double left, right;
