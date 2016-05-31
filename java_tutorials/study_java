@@ -1,5 +1,6 @@
 General
   Comment : 주석, single(// ...), multi(/* ... */), JavaDoc(/** ... */)
+  OOP : Abstraction, Inheritance, Polymorphism, Encapsulation
 
 Datatype/데이터형
   character & string
@@ -109,6 +110,14 @@ Modifier(제어자)
 			field : final field는 값이 정해지면 변경이 불가능.
 	Interface
 		class 클래스 implements 인터페이스 {}, 클래스는 인터페이스를 구현.
+
+Polymorphism(다향성)
+	Concept : 무언가가 상황에 따라 다르게 동작/행동 하는것.
+	method : method overload
+	class : ParentClass 클래스 = new ChildClass()
+		자식클래스 인스턴스가 부모 클래스 행세를 하는것, 데이터형이 부모인 자식 인스턴스.
+		override method(부모에게 물려받은, 부모에게 존재)만 사용 가능, 자식 method가 사용.
+		interface도 동일.
 
 Java execute
   byte code/바이트코드 : 파일명.class
