@@ -120,9 +120,10 @@ Polymorphism(다향성)
 		interface도 동일.
 
 Exception(예외)
-	문법 : try{logic1} catch(Exception e) {logic2}
+	Syntax : try{logic1} catch(Exception e) {logic2} catch() {}...finally {logic3}
 		logic1 : 오류 가능성이 있는 코드.
-		logic2 : 코드1 오류 발생시 실행되는 코드.
+		logic2 : 코드1 오류 발생시 실행 되는 코드.
+		logic3 : 오류와 관계없이 실행 되는 코드.
 		e : Exception class instance, e.getMessage()
 
 Java execute

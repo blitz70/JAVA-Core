@@ -14,10 +14,10 @@ class Calculator{
 			System.out.println(" 입니다.");
 			
 		} catch (Exception e) {
-			System.out.println("\n3: e.printStackTrace()");
-			e.printStackTrace();	//처음 실행하면 정상인데 다시 실행하면 결과가 늦음?
 			System.out.println("\n1: e.getMessage()\n" + e.getMessage());
 			System.out.println("\n2: e.toString()\n" + e.toString());
+			System.out.println("\n3: e.printStackTrace()");
+			e.printStackTrace();
 		}
 		System.out.println("Divide End");
 	}
