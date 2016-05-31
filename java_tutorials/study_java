@@ -119,6 +119,12 @@ Polymorphism(다향성)
 		override method(부모에게 물려받은, 부모에게 존재)만 사용 가능, 자식 method가 사용.
 		interface도 동일.
 
+Exception(예외)
+	문법 : try{logic1} catch(Exception e) {logic2}
+		logic1 : 오류 가능성이 있는 코드.
+		logic2 : 코드1 오류 발생시 실행되는 코드.
+		e : Exception class instance, e.getMessage()
+
 Java execute
   byte code/바이트코드 : 파일명.class
   java -cp classpath 패키지명.클래스명
