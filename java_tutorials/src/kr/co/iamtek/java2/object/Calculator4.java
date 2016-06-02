@@ -2,21 +2,19 @@ package kr.co.iamtek.java2.object;
 
 class Calculator {	//class
 	
-	int left, right;
+	double left, right;
 	
-	public void setOperands(int l, int r){
-		this.left = l;
-		this.right = r;
+	public void setOperands(int left, int right){
+		this.left = left;
+		this.right = right;
 	};
 	
 	public void sum() {
-		int sum = this.left + this.right;
-		System.out.println(sum);
+		System.out.println(this.left + this.right);
 	};
 	
 	public void ave() {
-		int ave = (this.left + this.right)/2;
-		System.out.println(ave);
+		System.out.println((this.left + this.right)/2);
 	};
 };
 

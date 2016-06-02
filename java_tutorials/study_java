@@ -24,7 +24,7 @@ Datatype/데이터형
   conversion : 형변환
   	implicit(자동/암시적) : 데이터 손실이 없을 경우 실행.
   	  byte -> short/char -> int -> long -> float ->double
-  	explicit(명시적)
+  	explicit(명시적) : cast
   	  int a = (int) 100.0F;
 
 Operator/연산자
@@ -134,6 +134,15 @@ Exception(예외)
 	Checked vs unchecked
 		Checked : 강제 예외 처리, 예외도 예외 처리, RuntimeException이 상위 클래스에 없음.
 		Unchecked : 예외 처리 자유, RuntimeException이 상위 클래스에 존재.
+		
+Progenitor Object class
+	설명 : 모든 클래스의 시조 클래스
+		class Obj {} == class Obj extends Object {}
+	메소드 : 모든 클래스는 Object 클래스의 메소드를 물려 받아 사용 가능하며 override를 통해 기능 변경 가능.
+		toString() : 객체->문자열, 수정 권장
+		equals() : 동일한지 비교, 객체의 경우 그대로 원시 데이터형은 수정(조심)하거나 == 비교 연산자 사용
+		finalize() :
+		clone() : 객체 복제, Cloneable interface 구현 필요, 복제된 객체의 데이터형 조심.
 
 Java execute
   byte code/바이트코드 : 파일명.class
