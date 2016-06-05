@@ -42,7 +42,7 @@ Condtion/조건문
 Loop/반복문
   WHILE 문 : while (조건) {코드};
   FOR 문 : for (초기화; 조건; 실행) {코드}
-  FOREACH 문 : for (배열원소:배열) {코드}
+  FOREACH 문 : for (배열원소:배열) {코드}, ENUM 참조
 
 Array/배열
  	정의 : 데이터형[] 변수명 = {a1, a2...}; 데이터형[] 변수명 = new 데이터형[크기];
@@ -110,6 +110,8 @@ Modifier(제어자)
 			field : final field는 값이 정해지면 변경이 불가능.
 	Interface
 		class 클래스 implements 인터페이스 {}, 클래스는 인터페이스를 구현.
+		field : public static final
+		method : public abstract.
 
 Polymorphism(다향성)
 	Concept : 무언가가 상황에 따라 다르게 동작/행동 하는것.
@@ -143,7 +145,14 @@ Progenitor Object class
 		equals() : 동일한지 비교, 객체의 경우 그대로 원시 데이터형은 수정(조심)하거나 == 비교 연산자 사용
 		finalize() :
 		clone() : 객체 복제, Cloneable interface 구현 필요, 복제된 객체의 데이터형 조심.
-
+		
+ENUM/Enumerated type (열거형)
+	설명 : 연관된 상수들의 집합, 연관된 변수들의 집합인 배열과 비슷, foreach로 처리 가능.
+	특징 : 클래스와 비슷하되 인스턴스 생성(private constructor) 및 상속 불가.
+	FOREACH 문 :
+		enum example {};
+		for (example no : example.values()) {코드};
+	
 Java execute
   byte code/바이트코드 : 파일명.class
   java -cp classpath 패키지명.클래스명

@@ -42,7 +42,6 @@ public class ExceptionDemo4 {	//Throw
 		} catch (FileNotFoundException e) {	//IOException의 자식클래스, 없어도 됨.
 			System.out.println("File not found!");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
