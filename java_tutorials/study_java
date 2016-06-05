@@ -152,7 +152,11 @@ ENUM/Enumerated type (열거형)
 	FOREACH 문 :
 		enum example {};
 		for (example no : example.values()) {코드};
-	
+
+Reference (참조)
+	Primitive/원시형 : 8개. byte short int long, float double, boolean, char.
+	Reference/참조형 : 원시형을 제외한 데이터형, 객체, 선언할때 new 즉 생성자를 사용.
+
 Java execute
   byte code/바이트코드 : 파일명.class
   java -cp classpath 패키지명.클래스명
