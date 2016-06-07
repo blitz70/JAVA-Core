@@ -166,6 +166,22 @@ Generic
 		참조 데이터형만 사용 가능, 원시 데이터형은 wrapper class를 통해 사용 가능.
 		ClassA <Generic extends ClassB> : ClassB의 자식만 Generic으로 사용 가능.
 
+Collections framework
+	설명 : data container, 데이터를 담고 다루는 기능을 가진 컨테이너.
+	Collection : add(객체) 추가
+	List : 배열, 순서 존재, 중복 가능.
+		ArrayList<>() : 저장소 생성, generic.
+		size() 크기, get(인덱스) 조회
+	Set : 집합, 순서가 없음, 중복 불가.
+		HashSet<>() : 저장소 생성, generic.
+		containsAll() subset, addAll() union, retainAll() intersect, removeAll() difference.
+	Map : 2개의 데이터가 쌍으로 저장, key는 중복 불가, value는 중복 가능
+		HashMap<>() : 저장소 생성, 2 generic, 함수
+		put(key, value) 추가, get(key) 조회 
+	Iterator : Collections 저장소 내용 조회
+		iterator() 생성, hasNext() 내용존재 확인, next() 조회 및 삭제.
+		
+
 Java execute
   byte code/바이트코드 : 파일명.class
   java -cp classpath 패키지명.클래스명
