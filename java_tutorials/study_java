@@ -156,6 +156,15 @@ ENUM/Enumerated type (열거형)
 Reference (참조)
 	Primitive/원시형 : 8개. byte short int long, float double, boolean, char.
 	Reference/참조형 : 원시형을 제외한 데이터형, 객체, 선언할때 new 즉 생성자를 사용.
+	
+Generic
+	설명 : 클래스 내부에서 사용될 데이터형을 외부에서 지정. 함수의 매개변수와 비슷한 계념.
+	문법
+		Class : Class <Generic>
+		Method : <Generic> Method
+	제한
+		참조 데이터형만 사용 가능, 원시 데이터형은 wrapper class를 통해 사용 가능.
+		ClassA <Generic extends ClassB> : ClassB의 자식만 Generic으로 사용 가능.
 
 Java execute
   byte code/바이트코드 : 파일명.class
