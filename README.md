@@ -1,4 +1,4 @@
-#1. Java : java_study [(opentutorials.org)](http://opentutorial.org "Opentutorials.org")
+#1. Java : java_study [(opentutorials.org)](http://opentutorials.org "Opentutorials.org")
 
 > #java1 : basics
 >* Number & String
