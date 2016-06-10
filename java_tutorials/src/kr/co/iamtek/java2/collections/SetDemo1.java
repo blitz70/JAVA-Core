@@ -1,7 +1,6 @@
 package kr.co.iamtek.java2.collections;
 
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.*;
 
 public class SetDemo1 {
 
@@ -11,11 +10,11 @@ public class SetDemo1 {
 		a.add(1);
 		a.add(2);
 		a.add(3);
-		HashSet<Integer> b = new HashSet<Integer>();
+		ArrayList<Integer> b = new ArrayList<Integer>();		//HastSet -> ArrayList
 		b.add(3);
 		b.add(4);
 		b.add(5);
-		HashSet<Integer> c = new HashSet<>();
+		Collection<Integer> c = new HashSet<>();				//Collection은 부모.
 		c.add(1);
 		c.add(2);
 		
