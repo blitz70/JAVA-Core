@@ -1,0 +1,20 @@
+General
+	JSP :Java Server Pages
+
+JSP Script
+	Expresssion : <%= ...코드... %>
+	Scriptlet 	: <%  ...코드 multi-line... %>
+	Declaration : <%! ...variable/method declaration... %>
+	Import		: <%@ page import="..." %>
+	
+Built-in object
+	request : .getHeader() .getLocale
+	response
+	
+Include
+	<jsp:include page="파일"></jsp>
+
+Form
+	request.getParameter(formName)
+	${param.formName} : shorthand, only for display
+	Checkbox : String[] list = request.getParameterValues(formName)
