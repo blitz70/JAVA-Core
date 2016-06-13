@@ -4,18 +4,18 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:head>
-	<title>Student Registration Form, Radiobuttons</title>
+	<title>Student Registration Form, Pre-populate </title>
 </h:head>
 <h:body>
 	<h:form>
-		First name: <h:inputText id="firstName" value="#{student4.firstName}" />
+		First name: <h:inputText id="firstName" value="#{student6.firstName}" />
 		<br />
 		<br />
-		Last name: <h:inputText id="lastName" value="#{student4.lastName}" />
+		Last name: <h:inputText id="lastName" value="#{student6.lastName}" />
 		<br />
 		<br />
 		Country:
-		<h:selectOneRadio value="#{student4.language}">
+		<h:selectOneRadio value="#{student6.language}">
 			<f:selectItem itemValue="Java" itemLabel="Java" />
 			<f:selectItem itemValue="C#" itemLabel="C#" />
 			<f:selectItem itemValue="PHP" itemLabel="PHP" />
@@ -23,7 +23,7 @@
 		</h:selectOneRadio>
 		<br />
 		<br />
-		<h:commandButton value="Submit" action="student4_r" />
+		<h:commandButton value="Submit" action="student6_r" />
 	</h:form>
 </h:body>
 </html>
