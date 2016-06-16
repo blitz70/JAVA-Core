@@ -1,0 +1,35 @@
+JDK (www.oracle.com)
+	1. Java JDK (8)
+	2. JAVA_HOME
+	3. path
+
+Tomcat (tomcat.apache.org)
+	1. Tomcat core zip (7)
+	2. link Eclipse
+
+Eclipse (www.eclipse.org)
+	1. Eclipse Java EE IDE (Mars)
+	2. workspace
+	3. Tomcat settings
+		server location : use tomcat installation
+		server option : public module contexts to separate XML files
+		ports : http 8181 (oracle db)
+	4. project
+		dynamic web project
+		check : Generate web.xml deployment descriptor
+
+Git
+	1. dynamic web project git project managment doesn't work, workaround
+		copy contents, dynamic web project(work) <-> resource project(git save)
+	2. load project
+		pull git repository
+		create resource project from git
+		create dynamic web project
+		copy contents, resource->dynamic web project
+			src -> Java Resources src
+			files ->	WebContent
+	3. save project
+		copy contents, dynamic web->resource project
+			Java Resources src -> src
+			WebContent -> files
+		commit&push git repository

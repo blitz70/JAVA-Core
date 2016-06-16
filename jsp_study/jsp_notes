@@ -1,0 +1,24 @@
+MVC
+	Model : DB?
+	View : JSP
+		.jsp 파일
+		Tomcat에서 자동으로 .java .class로 변환
+		위치 : tomcat폴더\work\Catalina\localhost\jsp\org\apache\jsp
+	Controller : servlet
+		.java 파일
+
+Servlet
+	.java 파일, 수정되면 server restart
+	Mapping
+		Annotation : @WebServlet("/매핑명"), .java 소스파일에 직접 입력.
+		web.xml
+			<web-app> 내부에 추가
+				<servlet>
+					<servlet-name>hello</servlet-name> 이름
+					<servlet-class>kr.co.iamtek.HelloWorld</servlet-class> 클래스
+				</servlet>
+				<servlet-mapping>
+					<servlet-name>hello</servlet-name>
+					<url-pattern>/hw</url-pattern>	이름 매핑
+				</servlet-mapping>
+			</web-app>		
