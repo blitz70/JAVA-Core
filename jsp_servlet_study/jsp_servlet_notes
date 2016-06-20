@@ -1,13 +1,16 @@
-MVC
-	Model : DB?
-	View : JSP
-		.jsp 파일
-		Tomcat에서 자동으로 .java .class로 변환
-		위치 : tomcat폴더\work\Catalina\localhost\jsp\org\apache\jsp
-	Controller : servlet
-		.java 파일
+General
+	WAS : Web application server, apache tomcat
+	MVC
+		Model(DB?)
+		View : JSP
+			.jsp 파일, Tomcat에서 자동으로 .java .class로 변환
+			위치 : tomcat폴더\work\Catalina\localhost\jsp\org\apache\jsp
+		Controller : servlet, .java 파일
+	java servlet의 장점
+		Thread : 타 CGI 언어에 비해 서버 부하 낮음.
+		재활용 : 동작 속도 빠름, 최초 요청때 객체 생성 메모리 로딩, 이후 요청은 기존 객체 재활용.
 
-4 Servlet
+04 Servlet
 	General
 		생성 : Project -> servlet, superclass : HttpServlet, mapping
 		superclass 문제가 있으면 project buildpath lib에 apache tomcat 확인	
@@ -17,6 +20,18 @@ MVC
 			@WebServlet("/매핑명"), .java 소스파일에 직접 입력.
 		web.xml
 			<web-app>에 <servlet> <servlet-mapping> 추가
+	
+05 Servlet
 	doGet() : servlet의 일반적 호출시 사용
 	doPost() : form 요청이 post 방식일 경우 사용
 	Context path : server.xml, 웹어플 구분 정보
+
+06 Servlet
+	작동 순서
+		client(web browser) -> web server -> WAS -> servlet container(create thread & object)
+	생명주기
+		최초 한번 : Servlet 객체 생성 -> Init() 호출
+		요청시 매번 : service(), doGet(), doPost()
+		마지막 한번 : destroy() 호출, servlet 수정 서버 restart 같은 자원 해제
+	선처리 후처리
+		@PostConstruct @PreDestroy annotation을 통해 선처리 후처리 메소드 지정.

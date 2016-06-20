@@ -28,7 +28,7 @@
 * Generic
 * Collections Framework
 
-#2. JSP : jsp_study [(Seoul Wiz)](http://www.wiz.center "Seoul Wiz")
+#2. JSP : jsp_servlet_study [(Seoul Wiz)](http://www.wiz.center "Seoul Wiz")
 >* Dev environment
-
+* Servlet
 
