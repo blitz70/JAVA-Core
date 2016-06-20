@@ -8,6 +8,9 @@ MVC
 		.java 파일
 
 Servlet
+	General
+		생성 : Project -> servlet, superclass : HttpServlet, mapping
+		superclass 문제가 있으면 project buildpath lib에 apache tomcat 확인	
 	.java 파일, 수정되면 server restart
 	Mapping
 		Annotation : @WebServlet("/매핑명"), .java 소스파일에 직접 입력.

@@ -10,13 +10,14 @@ Tomcat (tomcat.apache.org)
 Eclipse (www.eclipse.org)
 	1. Eclipse Java EE IDE (Mars)
 	2. workspace
-	3. Tomcat settings
+	3. Tomcat settings (server double click)
 		server location : use tomcat installation
 		server option : public module contexts to separate XML files
 		ports : http 8181 (oracle db)
 	4. project
 		dynamic web project
-		check : Generate web.xml deployment descriptor
+		target runtime : apache tomcat
+		generate web.xml deployment descriptor : check
 
 Git
 	1. dynamic web project git project managment doesn't work, workaround
