@@ -7,21 +7,13 @@ MVC
 	Controller : servlet
 		.java 파일
 
-Servlet
+4 Servlet
 	General
 		생성 : Project -> servlet, superclass : HttpServlet, mapping
 		superclass 문제가 있으면 project buildpath lib에 apache tomcat 확인	
-	.java 파일, 수정되면 server restart
+		.java 파일, 수정되면 server restart
 	Mapping
-		Annotation : @WebServlet("/매핑명"), .java 소스파일에 직접 입력.
+		Annotation
+			@WebServlet("/매핑명"), .java 소스파일에 직접 입력.
 		web.xml
-			<web-app> 내부에 추가
-				<servlet>
-					<servlet-name>hello</servlet-name> 이름
-					<servlet-class>kr.co.iamtek.HelloWorld</servlet-class> 클래스
-				</servlet>
-				<servlet-mapping>
-					<servlet-name>hello</servlet-name>
-					<url-pattern>/hw</url-pattern>	이름 매핑
-				</servlet-mapping>
-			</web-app>		
+			<web-app>에 <servlet> <servlet-mapping> 추가
