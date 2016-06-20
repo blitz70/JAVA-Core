@@ -17,3 +17,6 @@ MVC
 			@WebServlet("/매핑명"), .java 소스파일에 직접 입력.
 		web.xml
 			<web-app>에 <servlet> <servlet-mapping> 추가
+	doGet() : servlet의 일반적 호출시 사용
+	doPost() : form 요청이 post 방식일 경우 사용
+	Context path : server.xml, 웹어플 구분 정보
