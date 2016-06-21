@@ -35,3 +35,15 @@ General
 		마지막 한번 : destroy() 호출, servlet 수정 서버 restart 같은 자원 해제
 	선처리 후처리
 		@PostConstruct @PreDestroy annotation을 통해 선처리 후처리 메소드 지정.
+	
+07 Servlet
+	Form -> HttpServletRequest -> parameters
+	Form tag
+		<form action="요청 컴포넌트명" method="전송방식">
+		요청 컴포넌트 : .jsp, .html, HWorld
+		전송 방식 : get(url에 정보 같이 보내짐), post()
+	Servlet parameter
+		getParameter(name) : 1개
+		getParameterValues(name) : 복수, checkbox
+		getParameterNames() : form component names 
+	한글처리
