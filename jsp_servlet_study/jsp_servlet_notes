@@ -47,3 +47,5 @@ General
 		getParameterValues(name) : 복수, checkbox
 		getParameterNames() : form component names 
 	한글처리
+		get : server.xml -> <connector>, URIEncoding="EUC-KR" 추가, publish 실행?
+		post : servlet -> doPost, request.setCharacterEncoding("EUC-KR") 추가

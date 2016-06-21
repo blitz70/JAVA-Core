@@ -6,19 +6,20 @@
 </head>
 <body>
 	<form action="PForm" method="post">
-		이름 : <input type="text" name="name"><br>
-		아이디 : <input type="text" name="id"><br>
-		암호 : <input type="password" name="pwd"><br>
+		이름 : <input type="text" name="name" value="이름"><br>
+		아이디 : <input type="text" name="id" value="아이디"><br>
+		암호 : <input type="password" name="pwd" value="암호"><br>
 		취미 :
 		<input type="checkbox" name="hobby" value="reading">독서
 		<input type="checkbox" name="hobby" value="cooking">요리
 		<input type="checkbox" name="hobby" value="running">조깅
 		<input type="checkbox" name="hobby" value="swimming">수영
-		<input type="checkbox" name="hobby" value="sleeping">취침<br>
-		<input type="radio" name="major" value="korr">국어
-		<input type="radio" name="major" value="en" checked="checked">영어
-		<input type="radio" name="major" value="mat">수학
-		<input type="radio" name="major" value="des">기획<br>
+		<input type="checkbox" name="hobby" value="eating" checked="checked">식사
+		<input type="checkbox" name="hobby" value="sleeping" checked="checked">취침<br>
+		<input type="radio" name="major" value="Korean">국어
+		<input type="radio" name="major" value="English" checked="checked">영어
+		<input type="radio" name="major" value="Math">수학
+		<input type="radio" name="major" value="Design">기획<br>
 		<select name="protocol">
 			<option value="http">HTTP
 			<option value="ftp" selected="selected">FTP
