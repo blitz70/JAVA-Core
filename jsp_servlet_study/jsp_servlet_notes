@@ -46,6 +46,35 @@ General
 		getParameter(name) : 1개
 		getParameterValues(name) : 복수, checkbox
 		getParameterNames() : form component names 
-	한글처리
+	Character encoding (KR) 
 		get : server.xml -> <connector>, URIEncoding="EUC-KR" 추가, publish 실행?
 		post : servlet -> doPost, request.setCharacterEncoding("EUC-KR") 추가
+	동작
+		Client->server
+			HttpServletRequest 데이터형 request 객체를 통해 정보를 가져옴
+			HttpServletRequest 메소드를 사용하여 데이터 추출
+			eg)
+				String id = request.getParameter("id");
+		Server->client
+			HttpServletRequest 데이터형 reponse 객체에 정보를 넣어서 보냄
+			eg)
+				response.setContentType("text/html; charset = EUC-KR");
+				PrintWriter writer = response.getWriter();
+				writer.println("<html><head></head><body>");
+				writer.close();
+
+08 Servlet
+	Servlet initialization : 특정 servlet 초기화
+		indirect : web.xml에 기술하고 servlet에서 ServletConfig 클래스를 통해 사용
+			web.xml : <servlet>에 <init-param> 추가
+			servlet : ServletConfig 메소드 getInitParameter() 사용
+		direct : servlet의 @WebServlet에 @WebInitParam 추가
+			@WebServlet(urlPatterns={"매핑명"}, initParams={@WebInitParam(초기화1), @WebInitParam()...})
+	ServletContext : 데이터 공유, 복수 servlet 초기화
+		web.xml에 기술하고 여러 servlet에서 공유
+		web.xml : <servlet> 상단에 <context-param> 추가
+		servlet : ServletContext 메소드 getServletContext().getInitParameter() 사용
+	ServletContextListener : 웹어플리케이션 생명주기 감시
+		감시 클래스 생성 : ServletContextListener 인터페이스 구현
+		web.xml : <web-app>에 <listener> 추가
+		listener class : @WebListener 추가
