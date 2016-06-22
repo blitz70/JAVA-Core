@@ -1,4 +1,4 @@
-#1. Java : java_study [(opentutorials.org)](http://opentutorials.org "Opentutorials.org")
+#1. Java : java study [(opentutorials.org)](http://opentutorials.org "Opentutorials.org")
 
 > #java1 : basics
 >* Number & String
@@ -28,7 +28,8 @@
 * Generic
 * Collections Framework
 
-#2. JSP : jsp_servlet_study [(Seoul Wiz)](http://www.wiz.center "Seoul Wiz")
->* Dev environment
+#2. JSP : jsp_servlet study [(Seoul Wiz)](http://www.wiz.center "Seoul Wiz")
+>* Web intro : JSP & JSF [(luv2code)](http://www.luv2code.com/ "luv2code")
+* Dev environment
 * Servlet
 
