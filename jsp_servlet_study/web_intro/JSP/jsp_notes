@@ -2,7 +2,7 @@ General
 	JSP :Java Server Pages
 
 JSP Script
-	Expresssion : <%= ...코드... %>
+	Expression : <%= ...코드... %>
 	Scriptlet 	: <%  ...코드 multi-line... %>
 	Declaration : <%! ...variable/method declaration... %>
 	Import		: <%@ page import="..." %>

@@ -20,17 +20,5 @@ Eclipse (www.eclipse.org)
 		generate web.xml deployment descriptor : check
 
 Git
-	1. dynamic web project git project managment doesn't work, workaround
-		copy contents, dynamic web project(work) <-> resource project(git save)
-	2. load project
-		pull git repository
-		create resource project from git
-		create dynamic web project
-		copy contents, resource->dynamic web project
-			src -> Java Resources src
-			files ->	WebContent
-	3. save project
-		copy contents, dynamic web->resource project
-			Java Resources src -> src
-			WebContent -> files
-		commit&push git repository
+	1. becareful with gitignore settings
+		gitignore(with java, eclipse) doesn't save dynamic web project data
