@@ -109,3 +109,9 @@ General
 		include : 현재 page에 다른 page 삽입
 		taglib : tag library, 사용자 정의 tag?
 	Comment
+	
+11 JSP
+	request object : web browser를 통해 서버에 요청한 정보를 관리하는 객체
+		getParameter(), getParameterValues(), getParameterNames()
+	response object : web browser 요청에 서버가 응답할 정보를 관리하는 객체
+		getCharacterEncoding(), addCookie(), sendRedirect()

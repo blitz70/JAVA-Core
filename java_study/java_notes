@@ -47,7 +47,9 @@ Loop/반복문
 Array/배열
  	정의 : 데이터형[] 변수명 = {a1, a2...}; 데이터형[] 변수명 = new 데이터형[크기];
   한계 : 정의 할때 크기가 지정되며 사용시 범위를 넘으면 안됨.(collection)
-  Eg : String[] sentence = {"This","is","a","sentence"};
+  Eg
+  	String[] sentence = {"This","is","a","sentence"};
+  	String phrase = Arrays.toString(sentence);
   
 Object/객체
 	class : 객체의 설계도
