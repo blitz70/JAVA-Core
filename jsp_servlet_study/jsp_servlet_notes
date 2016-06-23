@@ -89,7 +89,7 @@ General
 		<%! ... %> : Declaration, 변수 & 메소드 선언
 		<%= ... %> : Expression, 결과값 출력, 끝에 ";" 없음
 		<% ... %> : Scriptlet, java code, muti-line
-		<jsp:action> </jsp:action> : Action-tags, Java bean
+		<jsp:action> </jsp:action> : Action-tag, Java bean
 	Architecture
 		1. Client(web browser) 요청 : Client(JSP, helloWorld.jsp) -> Server(JSP container, tomcat)
 		2. Server 처리 : JSP(helloWorld.jsp) -> Servlet(helloWorld_jsp.java) -> Class(helloWorld_jsp.class), 자동
@@ -115,3 +115,15 @@ General
 		getParameter(), getParameterValues(), getParameterNames()
 	response object : web browser 요청에 서버가 응답할 정보를 관리하는 객체
 		getCharacterEncoding(), addCookie(), sendRedirect()
+		
+12 JPS
+	Action-tag : <jsp:action>, action = forward include param  
+	forward : 페이지 넘기기, URL은 유지됨.
+		<jsp:forward page="파일" />
+	include : 페이지 삽입
+		<jsp:include page="파일" />
+	param : 페이지를 넘기거나 삽입할때 parameter 전달
+		<jsp:action>
+			<jsp:param name="id" value="blitz" />
+			<jsp:param name="pwd" value="1234" />
+		</jsp:action>
