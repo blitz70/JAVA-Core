@@ -78,3 +78,22 @@ General
 		감시 클래스 생성 : ServletContextListener 인터페이스 구현
 		web.xml : <web-app>에 <listener> 추가
 		listener class : @WebListener 추가
+		
+09 JSP
+	General
+		Java Server Pages : HTML 코드안에 Java 코드를 삽입, servlet은 Java에 HTML 삽입
+		Fast : servlet으로 동작, 최초 JSP->class 변환 추가
+	JSP Tags
+		<%@ ... %> : 지시자, page 속성
+		<% ... %> : Comments, 서버이기 때문에 clients에서 보이지 않음
+		<%! ... %> : Declaration, 변수 & 메소드 선언
+		<%= ... %> : Expressions, 결과값 출력, 끝에 ";" 없음
+		<% ... %> : Scriptlets, java code, muti-line
+		<jsp:action> </jsp:action> : Action-tags, Java bean
+	Architecture
+		1. Client(web browser) 요청 : Client(JSP, helloWorld.jsp) -> Server(JSP container, tomcat)
+		2. Server 처리 : JSP(helloWorld.jsp) -> Servlet(helloWorld_jsp.java) -> Class(helloWorld_jsp.class), 자동
+		3. Client 응답 : Server -> Client(HTML, web browser)
+	Built-in objects
+		내부 객체, JSP->Servlet 변환시 자동으로 생성되어 바로 사용 가능한 객체.
+		IO(request, response, out), servlet(page, config), session, exception
