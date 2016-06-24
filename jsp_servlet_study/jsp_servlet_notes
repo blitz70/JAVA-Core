@@ -143,3 +143,16 @@ General
 	Method
 		설정 : setMaxAge() setPath() setValue() setVersion()
 		조회 : getMaxAge() getName() getPath getValue() getVersion()
+		
+14 Session
+	General
+		cookie와 동일한 역할, 클라이언트-서버 관계 유지
+		서버에 객체로 존재하여 보안이 좋음
+		web browser 마다 jsp container가 세션을 자동 생성
+		데이터 한계 없음.
+		유효시간 30분, web.xml
+	Method
+		설정 : setAttribute()
+		조회 : getAttribute() getAttributeNames() getId() isNew() getMaxInactiveInterval() 
+		삭제 : removeAttribute() invalidate()
+		request.isRequestedSessionIdValid()
