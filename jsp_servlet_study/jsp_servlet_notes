@@ -127,3 +127,19 @@ General
 			<jsp:param name="id" value="blitz" />
 			<jsp:param name="pwd" value="1234" />
 		</jsp:action>
+
+13 Cookie
+	General
+		http 통신 종료 : 클라이언트 요청을 서버가 응답하여 처리하면 통신이 종료됨.
+		통신 종료 상태에서 cookie를 통해 관계를 유지.
+		서버에서 생성되고 클라이언트에 저장되며 용량 제한 존재.
+	동작
+		1. 서버 : 쿠키 생성 및 속성 설정
+			Cookie 쿠키 = new Cookie(속성)
+		2. 서버 : response 객체에 탑재 -> 클라이언트로 전송
+			response.addCookie(쿠키)
+		3. 클리이언트 : 쿠키 저장
+		4. 클라이언트 요청을 서버가 처리할때 쿠키 참조.
+	Method
+		설정 : setMaxAge() setPath() setValue() setVersion()
+		조회 : getMaxAge() getName() getPath getValue() getVersion()
