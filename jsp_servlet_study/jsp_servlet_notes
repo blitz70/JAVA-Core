@@ -9,6 +9,8 @@ General
 	java servlet의 장점
 		Thread : 타 CGI 언어에 비해 서버 부하 낮음.
 		재활용 : 동작 속도 빠름, 최초 요청때 객체 생성 메모리 로딩, 이후 요청은 기존 객체 재활용.
+	Container
+		Web/JSP : apache tomcat
 
 04 Servlet
 	General
@@ -156,3 +158,24 @@ General
 		조회 : getAttribute() getAttributeNames() getId() isNew() getMaxInactiveInterval() 
 		삭제 : removeAttribute() invalidate()
 		request.isRequestedSessionIdValid()
+		
+15 Exception
+	General
+		오류 발생시 web 사용자에게 error를 친근하게 전달
+		response.setStatus(200) : 페이지 넘길때 에러 세팅 문제가 있을 경우 사용
+		URL 변화 참고, 보통 변하지 않음
+		각 페이지별 세팅 : page directive 사용
+		일괄 처리 : web.xml 사용
+	Page directive
+		예외 발생 페이지
+			<%@ page errorPage = "예외 페이지" %>
+			<% 에러 가능성 있는 코드 %>
+		예외 페이지
+			<%@ page isErrorPage = "true" %> : true 일경우만 exception 객체 사용 가능
+			<% response.setStatus(200); %> : 정상(200) 페이지로 세팅
+			<%= exception.getMessage(); %>
+	web.xml
+		<error-page>
+			<error-code>404</error-code> : 에러 404의 경우 
+			<location>/error404.jsp</location> : error404.jsp로 넘김
+		</error-page>
