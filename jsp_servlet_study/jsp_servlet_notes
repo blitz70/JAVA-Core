@@ -118,7 +118,7 @@ General
 	response object : web browser 요청에 서버가 응답할 정보를 관리하는 객체
 		getCharacterEncoding(), addCookie(), sendRedirect()
 		
-12 JPS
+12 JSP
 	Action-tag : <jsp:action>, action = forward include param  
 	forward : 페이지 넘기기, URL은 유지됨.
 		<jsp:forward page="파일" />
@@ -179,3 +179,21 @@ General
 			<error-code>404</error-code> : 에러 404의 경우 
 			<location>/error404.jsp</location> : error404.jsp로 넘김
 		</error-page>
+
+16 Java bean
+	General
+		반복적 작업을 효율적으로 하기 위해 사용
+		데이터(속성)와 기능(메소드)로 이루어진 클래스
+		jsp에서 action-tag를 통해 javabean 사용
+		빈의 메소드명 주의
+	Action-tag
+		useBean : 빈 사용
+			<jsp:useBean 빈이름 클래스이름 스코프 />,
+			<jsp:useBean id="student" class="kr.co.iamtek.Student" scope="page" />
+			scope : page < request < session < application
+		setProperty : 빈 데이터 업데이트
+			<jsp:setPropery 빈이름 속성이름 속성값 />,
+			<jsp:setPropery name="student" property="name" value="홍길동" />
+		getProperty : 빈 데이터 값 가져오기
+			<jsp:getPropery 빈이름 속성이름 />,
+			<jsp:getPropery name="student" property="name" />

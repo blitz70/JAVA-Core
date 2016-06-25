@@ -1,7 +1,7 @@
 JDK (www.oracle.com)
 	1. Java JDK (8)
-	2. JAVA_HOME
-	3. path
+	2. JAVA_HOME = bin을 제외한 java 경로
+	3. path = %JAVA_HOME%\bin
 
 Tomcat (tomcat.apache.org)
 	1. Tomcat core zip (7)

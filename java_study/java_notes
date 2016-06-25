@@ -34,6 +34,11 @@ Operator/연산자
   unary : 단항, -10, ++i, i--
     a + b는 binary(이항)
   compare : equal(==), not equal(!=), greater(>), greaterequal(>=), <, <=
+  logic : and(&&), or(||)
+  tertiary : 삼항, ?
+  	int i = h !=5 ? 1:2;	h=5면 i=2 아니면 i=1
+  short
+  	"i += 100" 는" i = i + 100"
 
 Condtion/조건문
   IF문 : if (조건1) {코드1} else if (조건2) {코드2} ... else {코드}
