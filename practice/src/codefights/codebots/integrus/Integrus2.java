@@ -1,7 +1,5 @@
 package codefights.codebots.integrus;
 
-import codefights.codebots.Test;
-
 public class Integrus2 {
 
 	boolean gasPrediction(double[] driveDistances, double currentGasLevel, double avgMileage) {
@@ -47,9 +45,9 @@ public class Integrus2 {
 		return result;
 	}
 
-	boolean findPath(int[][] matrix) {
+	boolean findPath(int[][] matrix) {	//works?
 		
-		//find start
+		//find start position
 		int x1 = 0, y1 = 0;
 		for (int y = 0; y < matrix.length; y++) {
 			for (int x = 0; x < matrix[y].length; x++) {
@@ -59,14 +57,38 @@ public class Integrus2 {
 				}
 			}
 		}
-		System.out.println(x1);
-		System.out.println(y1);
+		//System.out.println(x1);
+		//System.out.println(y1);
 
 		//find end
 		int num_end = matrix.length * matrix[0].length;
-		System.out.println(num_end);
+		//System.out.println(num_end);
 		
-		boolean answer = true;
+		//find position of next number
+		int count = 1;
+		while(count < num_end) {
+			
+			if (x1!=0 && matrix[y1][x1-1] == count +1) { //left
+				count++;
+				x1 = x1-1;
+				System.out.println(count);
+			} else if (x1!=matrix[y1].length-1 && matrix[y1][x1+1] == count +1) {	//right
+				count++;
+				x1 = x1+1;
+				System.out.println(count);
+			} else if (y1!=0 && matrix[y1-1][x1] == count +1) {	//up
+				count++;
+				y1 = y1-1;
+				System.out.println(count);
+			} else if (y1!=matrix.length-1 && matrix[y1+1][x1] == count +1) {	//down
+				count++;
+				y1 = y1+1;
+				System.out.println(count);
+			} else break;
+		}
+		System.out.println(count == num_end);
+		
+		boolean answer = (count == num_end);
 		return answer;
 	}
 	
@@ -88,9 +110,19 @@ public class Integrus2 {
 		double[] destination = {1.1, 5.0};
 		double[] departure = {0.4, 1.0};	//1
 		double[] destination = {0.9, 3.0};
-		Integrus2 bot = new Integrus2();
 		System.out.println(bot.perfectCity(departure, destination));
 		 */
-		
+		int[][] matrix = {{1,4,5}, 
+				 {2,3,6}};
+				
+		/*
+		int[][] matrix = {{2,3,4,5}, 
+			                  {1,8,7,6}, 
+			                  {12,9,10,11}};
+		int[][] matrix = {{5,4,3,2,1}};
+		*/
+
+		Integrus2 bot = new Integrus2();
+		bot.findPath(matrix);
 	}
 }
