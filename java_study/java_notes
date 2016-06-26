@@ -1,6 +1,12 @@
 General
   Comment : 주석, single(// ...), multi(/* ... */), JavaDoc(/** ... */)
   OOP : Abstraction, Inheritance, Polymorphism, Encapsulation
+  Console IO
+  	output : System.out.println(내용)
+  	input
+  		Scanner scan = new Scanner(System.in);
+  		데이터형 변수 = scan.next메소드;
+  		next() nextInt() ...
 
 Datatype/데이터형
   character & string
@@ -50,11 +56,24 @@ Loop/반복문
   FOREACH 문 : for (배열원소:배열) {코드}, ENUM 참조
 
 Array/배열
- 	정의 : 데이터형[] 변수명 = {a1, a2...}; 데이터형[] 변수명 = new 데이터형[크기];
+  정의
+  	데이터형[] 변수명 = {a1, a2...};
+  	데이터형[] 변수명 = new 데이터형[크기];
   한계 : 정의 할때 크기가 지정되며 사용시 범위를 넘으면 안됨.(collection)
-  Eg
+  eg
   	String[] sentence = {"This","is","a","sentence"};
   	String phrase = Arrays.toString(sentence);
+  eg2, 다차원 배열1
+  	int[][] 2d = new int[2][2];
+  	2d[0][0] = 10;
+  	2d[0][1] = 20;
+  	2d[1][0] = 100;
+  	2d[1][1] = 200;
+  eg2, 다차원 배열2
+  	int[][] 2d = new int[3][];
+  	2d[0] = new int[2];
+  	2d[1] = new int[5];
+  	2d[3] = new int[4];
   
 Object/객체
 	class : 객체의 설계도
