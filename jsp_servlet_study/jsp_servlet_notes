@@ -197,3 +197,14 @@ General
 		getProperty : 빈 데이터 값 가져오기
 			<jsp:getPropery 빈이름 속성이름 />,
 			<jsp:getPropery name="student" property="name" />
+
+18 JDBC
+	JDBC드라이버 로드, DriverManager : Class.forName("com.mysql.jdbc.Driver");
+	연결, Connection : DriverManager.getConnection(JDBC URL, 계정, 암호);
+		JDBC URL = "jdbc:mysql://localhost:3306/데이터베이스"
+	SQL문 실행, Statement : connection.createStatement();
+	연결 해제, ResultSet
+		statement.executeQuery() : select, SQL문 실행후 복수의 결과값이 있을 경우 사용
+			이동 메소드 : next() previous() first() last()
+			get 메소드 : getString() getInt()
+		statememnt.executeUpdate() : insert, delete, update, 테이블의 내용만 변경될 경우 사용

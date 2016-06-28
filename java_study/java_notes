@@ -84,10 +84,6 @@ Object/객체
 	 직접 정의 안하면 자동으로 만들어짐, 직접 정의 하면 기본 생성자를 직접 정의 해야함.
 	 상속 : sub class 생성시 super class의 기본 생성자 필수, super()
 	void : return이 없음
-	static : class property/method, instance와 별개로 존재
-	class/instance member
-		instance method -> class members
-		class method -x-> instance members
 	Scope/유효범위
 		static scope, lexical scope, 정적인 유효범위, 정의된 지역 변수 -> 전역 변수(Java)
 		dynamic scope, 동적인 유효범, 사용 시점 지역 변수 -> 전역 변수 (근대적 언어)
@@ -110,6 +106,15 @@ Package
 		import kr.co.iamtek.java
 
 Modifier(제어자)
+	Static
+		기능 : class property/method, instance와 별개로 존재
+		특징
+			Class member vs instance member 관계
+				instance method -> class members
+				class method -x-> instance members
+  			Memory 관리
+			  	Data : classes & class members, 개발자가 직접 챙겨야 함
+  				Heap : objects/instances, garbage collector가 관리
 	Access(접근)
 		기능 : 사용/접근 여부를 정하는 제어자.
 			public일 경우 파일명 = 클래스명, 즉 소스코드 하나당 public class가 한개만 존재 가능.

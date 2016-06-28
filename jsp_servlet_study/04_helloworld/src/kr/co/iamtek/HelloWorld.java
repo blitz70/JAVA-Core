@@ -1,6 +1,8 @@
 package kr.co.iamtek;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,6 +31,12 @@ public class HelloWorld extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		System.out.println("Hello World");
+		response.setContentType("text/html; charset=EUC-KR");
+		PrintWriter writer = response.getWriter();
+		writer.println("<html><head></head><body>");
+		writer.println("Hello World !!" + "<br>");
+		writer.println("</body></html>");
+		writer.close();
 	}
 
 	/**
