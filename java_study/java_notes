@@ -87,18 +87,29 @@ Object/객체
 	Scope/유효범위
 		static scope, lexical scope, 정적인 유효범위, 정의된 지역 변수 -> 전역 변수(Java)
 		dynamic scope, 동적인 유효범, 사용 시점 지역 변수 -> 전역 변수 (근대적 언어)
-	Inheritance/상속
-	  class 자식클래스 extends 부모클래스 {}
-	  부모(super, base), 자식(sub, derived)
-	  overriding
-	  	자식을 부모와 다르게 하는 방법.
-	  	부모 클래스의 메소드를 외모가 같고 기능이 다른 자식 메소드로 교체. (property?)
-	  	자식 메소드의 서명/signature이 부모와 동일 (메소드 이름, 매개변수 내용, 리턴 타입). super.메소드명
-	  	@Override : overriding 할 subclass 메소드를 명확하게 정의
-	  overloading 
-	  	자식을 부모와 다르게 하는 방법.
-	  	부모 메소드와 비슷하지만 기능이 다른 자식 메소들이 부모 메소드와 같이 공존
-	  	자식 메소드 이름은 부모와 동일하고 매개변수 내용이 달라야함. 
+
+Inheritance/상속
+	기능
+		자신의 클래스 맴버에 다른 클래스 맴버 전체를 추가. 
+	 	자신은 자식(sub, derived) 클래스, 다른 클래스는 부모(super, base)가 된다
+	문법
+		class 자식클래스 extends 부모클래스 {}
+		public class ChildClass extents ParentClass {}
+	특징
+ 		overriding 및 overload 기능을 통해 자식을 부모와 다르게 할수 있음
+ 		자식을 생성자를 통해 생성하면 자동으로 부모도 생성, 즉 부모 생성자 실행
+	overriding
+		자식을 부모와 다르게 하는 방법.
+		부모 클래스의 메소드를 외모가 같고 기능이 다른 자식 메소드로 교체. (property?)
+		자식 메소드의 서명/signature이 부모와 동일 (메소드 이름, 매개변수 내용, 리턴 타입). super.메소드명
+		@Override : overriding 할 subclass 메소드를 명확하게 정의
+	overloading 
+		자식을 부모와 다르게 하는 방법.
+		부모 메소드와 비슷하지만 기능이 다른 자식 메소들이 부모 메소드와 같이 공존
+		자식 메소드 이름은 부모와 동일하고 매개변수 내용이 달라야함. 
+	this/super
+		this : 자신 객체, this.변수, this.메소드()
+		super : 부모 객체, super.변수, super.메소드()
 
 Package
 	구조 : root(project src & bin)/package/파일(*.java & *.class)

@@ -22,6 +22,8 @@ Eclipse (www.eclipse.org)
 Git
 	1. becareful with gitignore settings
 		gitignore(with java, eclipse) doesn't save dynamic web project data
+	2. src folder
+		내용이 없으면 폴더가 저장 안됨, pull 이후 문제가 있을 경우 그냥 생성하면 됨. 
 
 JDBC
 	Java Database Connectivity
