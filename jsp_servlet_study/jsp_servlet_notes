@@ -199,12 +199,31 @@ General
 			<jsp:getPropery name="student" property="name" />
 
 18 JDBC
-	JDBC드라이버 로드, DriverManager : Class.forName("com.mysql.jdbc.Driver");
-	연결, Connection : DriverManager.getConnection(JDBC URL, 계정, 암호);
-		JDBC URL = "jdbc:mysql://localhost:3306/데이터베이스"
-	SQL문 실행, Statement : connection.createStatement();
-	연결 해제, ResultSet
-		statement.executeQuery() : select, SQL문 실행후 복수의 결과값이 있을 경우 사용
-			이동 메소드 : next() previous() first() last()
-			get 메소드 : getString() getInt()
-		statememnt.executeUpdate() : insert, delete, update, 테이블의 내용만 변경될 경우 사용
+	General
+		JDBC : Java Database Connectivity
+		Exception : JDBC 코드는 항상 error 처리 필수, try-catch
+	절차
+		JDBC 드라이버 로드
+			Class.forName(driver)
+			MySQL : driver = "com.mysql.jdbc.Driver"
+			Oracle : driver = "oracle.jdbc.driver.OracleDriver"
+		DB 연결
+			Connection myConn = DriverManager.getConnection(url, user, password);
+			MySQL : url = "jdbc:mysql://localhost:3306/db이름"
+			MySQL : url = "jdbc:oraclel:thin@localhost:1521/db이름"
+		SQL문 실행
+			Statement myStmt = connection.createStatement();
+			ResultSet myRs =myStmt.executeQuery(SQL 문장);
+			executeQuery() : select, SQL문 실행후 복수의 결과값이 있을 경우 사용
+				이동 메소드 : next() previous() first() last()
+				get 메소드 : getString() getInt()
+			executeUpdate() : insert, delete, update, 테이블의 내용만 변경될 경우 사용
+		DB 연결 해제
+			myRs.close(); myStmt.close(); myConn.close();
+	Eg
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection myConn myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "blitz", "mysql");
+		Statement myStmt = myConn.createStatement();
+		ResultSet myRs = myStmt.executeQuery("SELECT * FROM `table`");
+		while(myRs.next()) {String id = myRs.getString("id");String pw = myRs.getString("pw");}
+		myRs.close(); myStmt.close(); myConn.close();
