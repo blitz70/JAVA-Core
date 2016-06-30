@@ -151,9 +151,29 @@ Modifier(제어자)
 			method : final method는 자식 클래스에서 override이 불가능, overload는 가능.
 			field : final field는 값이 정해지면 변경이 불가능.
 	Interface
-		class 클래스 implements 인터페이스 {}, 클래스는 인터페이스를 구현.
-		field : public static final
-		method : public abstract.
+		기능
+			객체의 작업 명세서/지시서, " 앞으로 이렇게 만들어요" 약속
+			여러 객체를 하나로 묶는 기능 제공, 반복문에 적용
+			Datatype이 목적, 객체 생성이 목적이 아닌 데이터타입을 정의/사용하는 것이 목적
+		문법
+			Interface
+				public InterfaceEx {
+					public static final in CONSTANT = 10;
+					public void someMethod();
+				}
+			Class : 클래스는 인터페이스를 구현
+				class SomeClass implements InterfaceEx {}
+		특징
+			상수와 추상메소드로 구성, field(public static final), method(public abstract)
+			데이터 타입으로만 사용 가능, 객체로 사용 못함
+			다중구현(Multi implementation)
+				Java는 다중 상속이 불가능하지만 복수의 인터페이스를 구현 가능
+				Polymorphism 의 핵심
+					상속 : ParentClass class = new ChildClass();
+					인터페이스 : Interface class = new Class();
+						복수 Interface들을 구현한 Class
+			Anonymous
+				클래스로 구현하지 않고 바로 객체로 사용시 생성할때 구현을 한다. 추상 클래스도 동일. 
 
 Polymorphism(다향성)
 	Concept : 무언가가 상황에 따라 다르게 동작/행동 하는것.
