@@ -1,22 +1,24 @@
 package kr.co.iamtek;
 
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class CheckLoin
+ * Servlet implementation class CheckModify
  */
-@WebServlet("/CheckLogin")
-public class CheckLogin extends HttpServlet implements DB {
+@WebServlet("/CheckModify")
+public class CheckModify extends HttpServlet implements DB {
 	private static final long serialVersionUID = 1L;
-    
+ 
 	//DB
 	private Connection myConn;
 	private Statement myStmt;
@@ -24,13 +26,16 @@ public class CheckLogin extends HttpServlet implements DB {
 	private String sql;
 	
 	//member data
+	private String name;
 	private String id;
 	private String pw;
-	private HttpSession session;
+	private String phone;
+	private String gender;
+
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CheckLogin() {
+    public CheckModify() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -48,39 +53,43 @@ public class CheckLogin extends HttpServlet implements DB {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doAction(request, response);
 	}
-
+	
 	private void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//get form data
+		request.setCharacterEncoding("EUC-KR");
+		name = request.getParameter("name");
 		id = request.getParameter("id");
 		pw = request.getParameter("pw");
-		//System.out.println("id:"+id+", pw:"+pw);
+		phone = request.getParameter("phone1")+"-"+request.getParameter("phone2")+"-"+request.getParameter("phone3");
+		gender = request.getParameter("gender");
 		
 		//form check
-		if (id == "" || pw == "") {
-			response.sendRedirect("login_false.html");
+		if (name == "" || id == "" || pw == "" || phone == "" || gender == "") {
+			response.sendRedirect("join_false.html");
 		} else {
 			try {
 				Class.forName(DRIVER);
 				myConn = DriverManager.getConnection(URL, USER, PASSWORD);
-				myStmt = myConn.createStatement();	
-				sql = "SELECT * FROM members WHERE id='" + id + "' and pw='" + pw + "'";
-				//System.out.println(sql);
+				myStmt = myConn.createStatement();
+				sql = "SELECT id FROM members WHERE id='" + id + "'";
 				myRs = myStmt.executeQuery(sql);
 				if (myRs.next()) {
 					//id exits
-					session = request.getSession();
-					session.setAttribute("id", id);
-					session.setAttribute("pw", pw);
-					//System.out.println(session.getAttribute("id").toString() + " " + session.getAttribute("pw").toString());
-					response.sendRedirect("login_true.jsp");
+					response.sendRedirect("member_true.html");
 				} else {
 					//no id
-					response.sendRedirect("login_false.html");
+					sql = "INSERT INTO `members` VALUES ('" + name + "', '" + id + "', '" + pw + "', '" + phone + "', '" + gender+"')";
+					//System.out.println(sql);
+					if(myStmt.executeUpdate(sql)==1) {
+						response.sendRedirect("join_true.html");
+					} else {
+						response.sendRedirect("join_false.html");
+					}
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
-				response.sendRedirect("login_false.html");
+				response.sendRedirect("join_false.html");
 			} finally {
 				try {
 					if (!myRs.isClosed()) myRs.close();
@@ -92,4 +101,5 @@ public class CheckLogin extends HttpServlet implements DB {
 			}
 		}
 	}
+
 }

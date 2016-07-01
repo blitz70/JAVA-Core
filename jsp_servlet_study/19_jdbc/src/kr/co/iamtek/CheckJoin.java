@@ -14,18 +14,14 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class CheckJoin
  */
 @WebServlet("/CheckJoin")
-public class CheckJoin extends HttpServlet {
+public class CheckJoin extends HttpServlet implements DB {
 	private static final long serialVersionUID = 1L;
 	
 	//DB
-	Connection myConn;
-	Statement myStmt;
-	ResultSet myRs;
-	String driver = "com.mysql.jdbc.Driver";
-	String url = "jdbc:mysql://localhost:3306/jdbc";
-	String user = "blitz";
-	String password = "mysql";
-	String sql;
+	private Connection myConn;
+	private Statement myStmt;
+	private ResultSet myRs;
+	private String sql;
 	
 	//member data
 	private String name;
@@ -56,7 +52,6 @@ public class CheckJoin extends HttpServlet {
 		doAction(request, response);
 	}
 	
-	
 	private void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		//get form data
@@ -67,37 +62,41 @@ public class CheckJoin extends HttpServlet {
 		phone = request.getParameter("phone1")+"-"+request.getParameter("phone2")+"-"+request.getParameter("phone3");
 		gender = request.getParameter("gender");
 		//System.out.println("name:"+name+", id:"+id+", pw:"+pw+", phone:"+phone+", gender:"+gender);
-
-		//DB
-		try {
-			Class.forName(driver);	//DB 종류 설정
-			myConn = DriverManager.getConnection(url, user, password);		//DB 접속
-			myStmt = myConn.createStatement();	//
-			sql = "SELECT id FROM members WHERE id='" + id + "'";
-			myRs = myStmt.executeQuery(sql);
-			if (myRs.next() ) {
-				//id exits
-				response.sendRedirect("login.html");
-			} else {
-				//no id
-				sql = "INSERT INTO `members` VALUES ('" + name + "', '" + id + "', '" + pw + "', '" + phone + "', '" + gender+"')";
-				//System.out.println(sql);
-				if(myStmt.executeUpdate(sql)==1) {
-					response.sendRedirect("login.html");
-				} else {
-					response.sendRedirect("join.html");
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			response.sendRedirect("join.html");
-		} finally {
+		
+		//form check
+		if (name == "" || id == "" || pw == "" || phone == "" || gender == "") {
+			response.sendRedirect("join_false.html");
+		} else {
 			try {
-				if (!myRs.isClosed()) myRs.close();
-				if (!myStmt.isClosed()) myStmt.close();
-				if (!myConn.isClosed()) myConn.close();
+				Class.forName(DRIVER);
+				myConn = DriverManager.getConnection(URL, USER, PASSWORD);
+				myStmt = myConn.createStatement();
+				sql = "SELECT id FROM members WHERE id='" + id + "'";
+				myRs = myStmt.executeQuery(sql);
+				if (myRs.next()) {
+					//id exits
+					response.sendRedirect("member_true.html");
+				} else {
+					//no id
+					sql = "INSERT INTO `members` VALUES ('" + name + "', '" + id + "', '" + pw + "', '" + phone + "', '" + gender+"')";
+					//System.out.println(sql);
+					if(myStmt.executeUpdate(sql)==1) {
+						response.sendRedirect("join_true.html");
+					} else {
+						response.sendRedirect("join_false.html");
+					}
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
+				response.sendRedirect("join_false.html");
+			} finally {
+				try {
+					if (!myRs.isClosed()) myRs.close();
+					if (!myStmt.isClosed()) myStmt.close();
+					if (!myConn.isClosed()) myConn.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}
