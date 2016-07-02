@@ -250,3 +250,10 @@ Collections framework
 	Sort : 컨테이너 내용 정렬.
 		정렬할 컨테이너는 Comparable 인터페이스 구현 필요.
 		Collections.sort(컨테이너)
+
+Design pattern
+	뭔지 잘 모르겠다
+	Singleton pattern
+		클래스의 인스턴스를 1개로 제한/보장하고 접근을 전역적 접촉점으로 제공.
+	Strategic pattern
+		부품화, 기존 예제는 객체들을 너무 많이 생성하는듯, singleton을 적용하면 좋을듯.
