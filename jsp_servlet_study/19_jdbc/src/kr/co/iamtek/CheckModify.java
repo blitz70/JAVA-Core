@@ -66,25 +66,25 @@ public class CheckModify extends HttpServlet implements DB {
 		
 		//form check
 		if (name == "" || id == "" || pw == "" || phone == "" || gender == "") {
-			response.sendRedirect("join_false.html");
+			response.sendRedirect("modify.jsp");
 		} else {
 			try {
 				Class.forName(DRIVER);
 				myConn = DriverManager.getConnection(URL, USER, PASSWORD);
 				myStmt = myConn.createStatement();
-				sql = "SELECT id FROM members WHERE id='" + id + "'";
+				sql = "SELECT id FROM `"+ TABLE + "` WHERE id='" + id + "'";
 				myRs = myStmt.executeQuery(sql);
-				if (myRs.next()) {
-					//id exits
-					response.sendRedirect("member_true.html");
-				} else {
+				if (!myRs.next()) {
 					//no id
-					sql = "INSERT INTO `members` VALUES ('" + name + "', '" + id + "', '" + pw + "', '" + phone + "', '" + gender+"')";
+					response.sendRedirect("modify.jsp");
+				} else {
+					//id exits
+					sql = "UPDATE `"+ TABLE + "` SET `name` = '" + name + "', `pw` = '" + pw + "', `phone` = '" + phone + "', `gender` = '" + gender + "' WHERE `id` = '" + id + "'";
 					//System.out.println(sql);
 					if(myStmt.executeUpdate(sql)==1) {
-						response.sendRedirect("join_true.html");
+						response.sendRedirect("modify_true.jsp");
 					} else {
-						response.sendRedirect("join_false.html");
+						response.sendRedirect("modify.jsp");
 					}
 				}
 			} catch (Exception e) {

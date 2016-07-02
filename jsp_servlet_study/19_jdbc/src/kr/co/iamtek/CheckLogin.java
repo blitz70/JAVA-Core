@@ -64,7 +64,7 @@ public class CheckLogin extends HttpServlet implements DB {
 				Class.forName(DRIVER);
 				myConn = DriverManager.getConnection(URL, USER, PASSWORD);
 				myStmt = myConn.createStatement();	
-				sql = "SELECT * FROM members WHERE id='" + id + "' and pw='" + pw + "'";
+				sql = "SELECT * FROM `"+ TABLE + "` WHERE id='" + id + "' and pw='" + pw + "'";
 				//System.out.println(sql);
 				myRs = myStmt.executeQuery(sql);
 				if (myRs.next()) {

@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%
+	try {
+		String id = session.getAttribute("id").toString();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,10 +12,15 @@
 </head>
 <body>
 
-	<%
-		session.invalidate();
-		response.sendRedirect("gate.html");
-	%>
+	<%= id %>님 회원정보가 수정 되었습니다.<br><br>
+	<a href="modify.jsp">회원정보 수정</a><br>
+	<a href="logout.jsp">로그아웃</a>
 
 </body>
 </html>
+<%		
+	} catch (Exception e) {
+		response.sendRedirect("gate.html");
+		e.printStackTrace();
+	}
+%>

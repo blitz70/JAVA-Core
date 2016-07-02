@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 /**
  * Servlet implementation class CheckJoin
  */
@@ -71,14 +70,14 @@ public class CheckJoin extends HttpServlet implements DB {
 				Class.forName(DRIVER);
 				myConn = DriverManager.getConnection(URL, USER, PASSWORD);
 				myStmt = myConn.createStatement();
-				sql = "SELECT id FROM members WHERE id='" + id + "'";
+				sql = "SELECT id FROM `"+ TABLE + "` WHERE id='" + id + "'";
 				myRs = myStmt.executeQuery(sql);
 				if (myRs.next()) {
 					//id exits
 					response.sendRedirect("member_true.html");
 				} else {
 					//no id
-					sql = "INSERT INTO `members` VALUES ('" + name + "', '" + id + "', '" + pw + "', '" + phone + "', '" + gender+"')";
+					sql = "INSERT INTO `"+ TABLE + "` VALUES ('" + name + "', '" + id + "', '" + pw + "', '" + phone + "', '" + gender+"')";
 					//System.out.println(sql);
 					if(myStmt.executeUpdate(sql)==1) {
 						response.sendRedirect("join_true.html");

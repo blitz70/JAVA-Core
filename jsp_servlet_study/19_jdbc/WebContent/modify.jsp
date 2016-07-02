@@ -39,7 +39,7 @@
 <body>
 	<form action="CheckModify" method="post">
 		이름 : <input type="text" name="name" value="<%= name %>" /><br>
-		아이디 : <input type="text" name="id" value="<%= id %>"/><br>
+		아이디 : <input type="text" readonly="readonly" name="id" value="<%= id %>" /><br>
 		암호 : <input type="password" name="pw" value="<%= pw %>"/><br>
 		전화번호 : <select name="phone1" >
 			<option value="016">016</option>
@@ -107,7 +107,7 @@
 </html>
 <%
 	} catch (Exception e) {
-		response.sendRedirect("login.html");
+		response.sendRedirect("gate.html");
 		e.printStackTrace();
 	} finally {
 		try {
