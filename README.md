@@ -1,6 +1,6 @@
-#1. Java : java study [(opentutorials.org)](http://opentutorials.org "Opentutorials.org")
+#1. Java : java study
 
-> #java1 : basics
+> #java1 : basics [(opentutorials.org)](https://opentutorials.org/course/1223 "Opentutorials.org")
 >* Number & String
 * Variable
 * Constant
@@ -11,7 +11,7 @@
 * Input & Output
 * Array
 
->#java2 : object oriented
+>#java2 : object oriented [(opentutorials.org)](https://opentutorials.org/course/1223 "Opentutorials.org")
 >* Object oriented programming
 * Member, Class, Instance & Object
 * Scope 
@@ -28,7 +28,14 @@
 * Generic
 * Collections Framework
 
-#2. JSP : jsp_servlet study [(Seoul Wiz)](http://www.wiz.center "Seoul Wiz")
+>#java3 : extra [(Seoul Wiz)](http://www.wiz.center "Seoul Wiz")
+>* Class
+* Abstract
+* Interface
+* Design pattern
+* API
+
+#2. JSP & Servlets : jsp_servlet study [(Seoul Wiz)](http://www.wiz.center "Seoul Wiz")
 >* Web intro : JSP & JSF [(luv2code)](http://www.luv2code.com/ "luv2code")
 * Dev environment
 * Servlet
@@ -36,3 +43,4 @@
 * Cookie & Session
 * Exception
 * Java Bean
+* JDBC

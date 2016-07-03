@@ -257,3 +257,56 @@ Design pattern
 		클래스의 인스턴스를 1개로 제한/보장하고 접근을 전역적 접촉점으로 제공.
 	Strategic pattern
 		부품화, 기존 예제는 객체들을 너무 많이 생성하는듯, singleton을 적용하면 좋을듯.
+
+API
+	Application programming interface
+	String
+		문자열 API
+		String
+			특징
+				객체인데 기초데이터 처럼 처리
+				String string = "Hello World"; String string = new String("Hello World"); 은 동일
+				초창기 문자열 API, 객체 재활용을 안해서 메모리 관리가 안되고 느려지는 단점을 가짐
+			문법
+				concat,substring, length, toUpperCase, to LowerCase, charAt, indexOf, equals, trim, replace, replaceAll
+		StringBuffer, StringBuilder
+			특징
+				String의 단점을 보안해 등장한 객체, StringBuilder가 최신
+				기능은 String과 거의 비슷
+			문법
+				append, insert, delete, deleteCharAt
+	Calendar
+		날짜와시간 API
+		Calendar cal = Calendar.getInstance();
+		int month = cal.get(Calendar.MONTH) + 1
+	System.currentTimeMillis()
+		현재 시간을 1/1000초로 표시, 속도 테스트에 자주 사용
+		double start = System.currentTimeMillis();
+	Random
+		random 번호 생성
+		Math.random : old
+			double d = Math.random();
+		Random : new
+			Random rn = new Random();
+			rn.nextInt(100);
+	Scanner
+		키보드나 IO 프로그램에서 문자열을 읽어올때 사용
+		Scanner scan = new Scanner(System.in);
+		String str = scan.next()
+	System.out.println()
+		console창에 표시, 테스트용
+	Wrapper
+		primitive data를 Object data로 변환
+		primitive-object
+			int-Integer, double-Double, boolean-Boolean, char-Character
+			byte-Byte, short-Short, long-Long, float-Float
+		Integer integer = new Integer(10);
+		int i = integer.intValue();
+	Timer
+		작업 실행 스케듈러
+			Timer mytimer = new Timer(true);
+			TimerTask t1 = new MyTask1();	TimerTask 추상클래스를 상속 받는 클래스
+			TimerTask t2 = new MyTask2();
+			mytimer.schedule(t1, 2000);
+		Thread.sleep() : 실행 일시 중지
+	StringTokenizer
