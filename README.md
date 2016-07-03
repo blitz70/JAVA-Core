@@ -28,14 +28,14 @@
 * Generic
 * Collections Framework
 
->#java3 : extra [(Seoul Wiz)](http://www.wiz.center "Seoul Wiz")
+>#java3 : extra [(Seoul Wiz)](http://www.wiz.center/tag/java "Seoul Wiz")
 >* Class
 * Abstract
 * Interface
 * Design pattern
 * API
 
-#2. JSP & Servlets : jsp_servlet study [(Seoul Wiz)](http://www.wiz.center "Seoul Wiz")
+#2. JSP & Servlets : jsp_servlet study [(Seoul Wiz)](http://www.wiz.center/tag/jsp "Seoul Wiz")
 >* Web intro : JSP & JSF [(luv2code)](http://www.luv2code.com/ "luv2code")
 * Dev environment
 * Servlet
