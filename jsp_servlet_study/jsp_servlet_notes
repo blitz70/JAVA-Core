@@ -198,7 +198,7 @@ General
 			<jsp:getPropery 빈이름 속성이름 />,
 			<jsp:getPropery name="student" property="name" />
 
-18 JDBC
+17, 18, 19 JDBC
 	General
 		JDBC : Java Database Connectivity
 		Exception : JDBC 코드는 항상 error 처리 필수, try-catch
@@ -227,3 +227,16 @@ General
 		ResultSet myRs = myStmt.executeQuery("SELECT * FROM `table`");
 		while(myRs.next()) {String id = myRs.getString("id");String pw = myRs.getString("pw");}
 		myRs.close(); myStmt.close(); myConn.close();
+		
+20 DBCP
+	General
+		DBCP : Database Connection Pooling
+		JSP/Servlet 코드 관리를 위해 DB관련 코드를 따른 클래스로 분리
+		Architecture : Client <-> Server (JSP/Servlet <-> DTO <-> DAO) <-> DB
+	DAO : Data Access Object
+		DB에 접속해서 DB 작업(추가, 삭제, 수정)을 하는 클래스
+	DTO : Data Transfer Object
+		DAO를 통해 DB 작업에 관련된 데이터를 관리하는 클래스
+	PreparedStatement
+	DBCP
+		Database Connection Pool
