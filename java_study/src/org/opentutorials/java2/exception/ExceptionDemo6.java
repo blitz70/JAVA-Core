@@ -9,7 +9,7 @@ class E {
 		throw new ArithmeticException();
 	};
 	
-	void exception2() throws IOException{	//Checked exception
+	void exception2() throws IOException {	//Checked exception
 		throw new IOException();
 	}
 	void exception3(){
@@ -31,8 +31,26 @@ class E {
 	java.lang.Exception
 	java.io.IOException				//checked
 	*/
+	
+}
+public class ExceptionDemo6 {
 
-
-
-
+	public static void main(String[] args) {
+		E e = new E();
+		try {
+			e.exception1();
+		} catch (Exception e2) {
+		}
+		try {
+			e.exception2();
+		} catch (Exception e2) {
+		}
+		try {
+			
+		} catch (Exception e2) {
+			e.exception3();
+		}
+		System.out.println("END");
+	}
+	
 }

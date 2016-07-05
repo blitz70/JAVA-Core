@@ -202,10 +202,13 @@ Exception(예외)
 		Checked : 강제 예외 처리, 예외도 예외 처리, RuntimeException이 상위 클래스에 없음.
 		Unchecked : 예외 처리 자유, RuntimeException이 상위 클래스에 존재.
 	Exceptions
-		ArrayIndexOutOfBoundsException : 존재하지 않는 index 호출
-		NullPointerException : 존재하지 않는 객체에 접근
-		NumberFormatException : 문자를 숫자로 처리
-		NumberFormatException, SQLException : Database 관련 예외들
+		IllegalArgumentException : 매개변수 예외
+		IllegalStateException : 메소드 예외
+		NullPointerException : 객체 예외
+		IndexOutOfBoundsException : 인덱스 범위 예외
+		ArithmeticException : 산술 연산 예외
+		NumberFormatException : 문자숫자 처리 예외
+		ClassNotFoundException, SQLException : Database 예외
 		
 Progenitor Object class
 	설명 : 모든 클래스의 시조 클래스
