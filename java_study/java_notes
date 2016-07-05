@@ -184,20 +184,28 @@ Polymorphism(다향성)
 		interface도 동일.
 
 Exception(예외)
+	설명
+		프로그램 실행중 error가 발생하면 실행이 중지됨
+		오류에 대한 예외를 처리로 오류 발생시 해당 부분에 중지되지 않고 계속 실행.
 	Exception class instance, e
 		e.getMessage() e.toString() e.printStackTrace()
-	Try-catch : Exception을 받아서 처리.
+	Try-catch : 예외를 받아서 처리, 오류를 실제로 처리함.
 		syntax : try{logic1} catch(Exception e) {logic2} catch() {}...finally {logic3}
 		logic1 : 오류 가능성이 있는 코드.
 		logic2 : 코드1 오류 발생시 실행 되는 코드.
-		logic3 : 오류와 관계없이 실행 되는 코드.
-	Throws : Exception을 호출자/사용자에게 넘기기.
+		logic3 : 오류와 관계없이 무조건 실행 되는 코드.
+	Throws : 예외를 처리하지 않고 호출자/사용자에게 넘기기, 결국에는 try-catch로 처리, 필요?
 		syntax : method() throws eClass1, eClass2 {}
 	Manual handling : 직접 예외 처리 만들기
 		syntax : throw new eClass()
 	Checked vs unchecked
 		Checked : 강제 예외 처리, 예외도 예외 처리, RuntimeException이 상위 클래스에 없음.
 		Unchecked : 예외 처리 자유, RuntimeException이 상위 클래스에 존재.
+	Exceptions
+		ArrayIndexOutOfBoundsException : 존재하지 않는 index 호출
+		NullPointerException : 존재하지 않는 객체에 접근
+		NumberFormatException : 문자를 숫자로 처리
+		NumberFormatException, SQLException : Database 관련 예외들
 		
 Progenitor Object class
 	설명 : 모든 클래스의 시조 클래스
