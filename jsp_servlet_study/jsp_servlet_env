@@ -57,4 +57,13 @@ JDBC
 			Search : SELECT * FROM `member`;
 		Show
 			SHOW DATABASES, SHOW TABLES
+
+DBCP
+	Database Connection Pooling
+	1. tomcat의 context.xml 수정
+		<resource
+			name="jdbc/MySQL" auth="Container" maxActive="50" maxWait="1000" type="javax.sql.DataSource"
+			driverClassName = "com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/jdbc" username="blitz" password="mysql"
+		/>
+	2. republish
 			

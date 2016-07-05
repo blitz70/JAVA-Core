@@ -238,5 +238,10 @@ General
 	DTO : Data Transfer Object
 		DAO를 통해 DB 작업에 관련된 데이터를 관리하는 클래스
 	PreparedStatement
+		Statement 객체의 발전된 버전, query문(먼저 설정) 설정이 쉬움
 	DBCP
-		Database Connection Pool
+		Database Connection Pooling
+		DB optimization 기법
+			보통 DB 요청 때마다 connection 객체를 생성.
+			톰켓 컨테이너에서 connection 객체들을 미리 생성후 DB 요청시 이를 할당하고 DB작업이 끝나면 반환
+			tomcat의 context.xml 수정하고 republish하여 tomcat container에 적용
