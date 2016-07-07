@@ -242,21 +242,50 @@ Generic
 		ClassA <Generic extends ClassB> : ClassB의 자식만 Generic으로 사용 가능.
 
 Collections framework
-	설명 : data container, 데이터를 담고 다루는 기능을 가진 컨테이너, 가능하면 상위 컨테이너 사용 권장.
-	Collection : List Set을 포함하는 상위 컨테이너, Iterator 기능 포함.
-	List : 배열, 순서 존재, 중복 가능.
-		ArrayList<>() : 저장소 생성, generic.
-		size() 크기, get(인덱스) 조회
-	Set : 집합, 순서가 없음, 중복 불가.
-		HashSet<>() : 저장소 생성, generic.
+	설명
+		자료 구조, 효과적으로 데이터를 처리하기
+		data container, 데이터를 담고 다루는 기능을 가진 컨테이너
+		객체 자체를 다루지 않고 reference만 관리.
+		가능하면 상위 컨테이너 사용 권장.
+	Collection : List/Set을 포함하는 상위 컨테이너, Iterator 기능 포함.
+	List, ArrayList, LinkedList, Vector(안전적)
+		배열과 비슷하되 크기가 가변적. 	순서/인덱스 존재, 중복 가능.
+		ArrayList<String> list = new ArrayList<String>();
+		add() get() size() set() remove() clear()
+	Set, HashSet
+		집합, 순서가 없음, 중복 불가.
+		HashSet<Object> set = new HashSet<Object>();
+		add() size() remove(), 기초자료형이 아니면 삭제가 조금 복잡
 		containsAll() subset, addAll() union, retainAll() intersect, removeAll() difference.
-	Map : 2개의 데이터가 쌍으로 저장, key는 중복 불가, value는 중복 가능
-		HashMap<>() : 저장소 생성, 2 generic, 함수
-		put(key, value) 추가, get(key) 조회 
-		Loop : iterator가 없기 때문에 컨테이너를 collection으로 변경 필요.
-			Set<Entry> 집합 = 맵.entrySet();
-			for (Entry 집합원소 : 집합) or Iterator mi = 집합.iterator();while (mi.hasNext())			
-	Iterator : Collections 저장소 내용 조회
+	Map, HashMap
+		2(key & value)개의 데이터가 쌍으로 저장. key는 중복 불가, value는 중복 가능
+		HashMap<Integer, String> map = new HashMap<Integer, String>()
+		put() get() size() remove() clear()
+		iterator : 반복자가 없기 때문에 컨테이너를 collection으로 변경 필요.
+			1. Iterator<Integer> i = map.keySet().iterator();
+				while (i.hasNext()) {
+					System.out.println(map.get(i.next()));
+				}
+			2. Set<Entry> 집합 = 맵.entrySet();
+				for (Entry 집합원소 : 집합) or Iterator mi = 집합.iterator();while (mi.hasNext())			
+	Iterator
+		반복자, Collections 저장소 내용 조회
+		Map을 제외한 나머지는 바로 사용 가능
+			ArrayList<String> list = new ArrayList<String>();
+			list.add();
+			Iterator<String> iterator = list.iterator();
+			while (iterator.hasNext()) {
+				System.out.println(i1.next());
+			}
+		Map의 경우 반복자가 없기 때문에 컨테이너를 collection으로 변경하는 단계 추가
+			HashMap<Integer, String> map = new HashMap<Integer, String>();
+			map.put();
+			Set<Integer> set = map.keySet();
+			Iterator<Integer> iterator = set.iterator();
+			while(iterator.hasNext()) {
+				int key = iterator.next();
+				System.out.println(key + " : " + map.get(key));
+			}
 		iterator() 생성, hasNext() 내용존재 확인, next() 조회 및 삭제.
 	Sort : 컨테이너 내용 정렬.
 		정렬할 컨테이너는 Comparable 인터페이스 구현 필요.
