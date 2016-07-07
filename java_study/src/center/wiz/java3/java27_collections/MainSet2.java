@@ -1,4 +1,4 @@
-package center.wiz.java3.java26_collections;
+package center.wiz.java3.java27_collections;
 
 import java.util.HashSet;
 
@@ -14,7 +14,7 @@ class Student {
 	}
 	@Override
 	public String toString() {
-		//return super.toString();				//열라 긴 내용
+		//return super.toString();			//열라 긴 내용
 		return name + " : " + grade;		//홍길동 : 3, 장보고 : 1, 이순신 : 6]
 	}
 	@Override

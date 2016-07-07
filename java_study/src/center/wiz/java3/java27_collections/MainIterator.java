@@ -1,4 +1,4 @@
-package center.wiz.java3.java26_collections;
+package center.wiz.java3.java27_collections;
 
 import java.util.*;
 
