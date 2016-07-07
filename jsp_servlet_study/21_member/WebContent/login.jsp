@@ -2,9 +2,7 @@
     pageEncoding="EUC-KR"%>
  <%
  	String id = "";
- 	//session.invalidate();
  	if (session.getAttribute("Valid") != null) {
- 		//로그인 상태 -> main
  %>
 <jsp:forward page="main.jsp"></jsp:forward>
  <%
@@ -20,7 +18,7 @@
 </head>
 <body>
 <h1>로그인 페이지 입니다.</h1>
-	<form action="loginOk.jsp" method="post">
+	<form action="loginOk.jsp" method="post" name="formLogin">
 	아이디 : <input type="text" name="id" value="<%= id %>"><br>
 	비밀번호 : <input type="password" name="pw" value="">
 	<br><br>

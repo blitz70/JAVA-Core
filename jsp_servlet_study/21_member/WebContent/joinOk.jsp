@@ -18,8 +18,24 @@
 <%
 	Timestamp date = new Timestamp(System.currentTimeMillis());
 	dto.setDate(date);		//빠진 date를 dto에 입력
-	DbDAO dao = new DbDAO();
-	dao.memberInsert(dto);
+	DbDAO dao = DbDAO.getInstance();
+	if (dao.getId(dto.getId()) == "") {
+		dao.memberInsert(dto);
+		session.setAttribute("id", dto.getId());
+%>
+	<script type="text/javascript">
+			alert("회원 가입을 축하합니다.");
+			location = "login.jsp";
+	</script>
+<%
+	} else {
+%>
+	<script type="text/javascript">
+		alert("아이디가 이미 존재합니다.");
+		history.back();
+	</script>
+<%
+	}
 %>
 </body>
 </html>

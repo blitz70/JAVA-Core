@@ -12,7 +12,9 @@ public class DbDTO {
 	private Timestamp date;
 	private String address;
 	
-	/*
+	public DbDTO() {
+	}
+	
 	public DbDTO(String name, String id, String pw, String email, Timestamp date, String address) {
 		super();
 		this.name = name;
@@ -22,7 +24,6 @@ public class DbDTO {
 		this.date = date;
 		this.address = address;
 	}
-	*/
 	
 	public Timestamp getDate() {
 		return date;
