@@ -47,3 +47,4 @@
 * Java Bean
 * JDBC
 * DBCP
+* Web app - member management

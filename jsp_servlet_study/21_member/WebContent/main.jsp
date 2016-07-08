@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
  <%
- 	String id, name = "";
+ 	String id;
  	if (session.getAttribute("Valid") == null) {
  %>
 <jsp:forward page="login.jsp"></jsp:forward>

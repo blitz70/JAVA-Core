@@ -1,12 +1,11 @@
 package kr.co.iamtek;
 
 import java.sql.*;
-import java.util.ArrayList;
 
 public class DbDAO {
 	
 	private static DbDAO INSTANCE;
-	//DB data
+	
 	private final String DRIVER = "com.mysql.jdbc.Driver";
 	private final String URL = "jdbc:mysql://localhost:3306/jdbc";
 	private final String USER = "blitz";
@@ -14,7 +13,6 @@ public class DbDAO {
 	private final String TABLE = "members";
 
 	private Connection myConn;
-	private Statement myStmt;
 	private PreparedStatement myPsmt;
 	private ResultSet myRs;
 	private String SQL;
@@ -23,6 +21,7 @@ public class DbDAO {
 		try {
 			Class.forName(DRIVER);
 		} catch (Exception e) {
+			System.out.println("DbDAO.DbDAO() error");
 			e.printStackTrace();
 		}
 	}
@@ -35,88 +34,95 @@ public class DbDAO {
 		}
 	}
 	
-	public ArrayList<DbDTO> memberSelect() {
-		ArrayList<DbDTO> dtos = new ArrayList<DbDTO>();
+	public int checkMember(String id, String pw) {
+		int result = 0;	//2:모두 일치, 1:id 일치, 0: 모두 틀림
 		try {
-			SQL = "SELECT * FROM `"+ TABLE + "`";
-			myConn = DriverManager.getConnection(URL, USER, PASSWORD);
-			myStmt = myConn.createStatement();
-			myRs = myStmt.executeQuery(SQL);
-			while(myRs.next()) {
-				String name = myRs.getString("name");
-				String id = myRs.getString("id");
-				String pw = myRs.getString("pw");
-				String phone = myRs.getString("phone");
-				String gender = myRs.getString("gender");
-				//dtos.add(new DbDTO(name, id, pw, phone, gender));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (!myRs.isClosed()) myRs.close();
-				if (!myStmt.isClosed()) myStmt.close();
-				if (!myConn.isClosed()) myConn.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		return dtos;
-	}
-	public DbDTO getMember(String id, String pw) {
-		DbDTO dto = null;
-		try {
-			SQL = "SELECT * FROM `"+ TABLE + "` WHERE id=? AND pw=?";
-			myConn = DriverManager.getConnection(URL, USER, PASSWORD);
-			myPsmt = myConn.prepareStatement(SQL);
-			myPsmt.setString(1, id);
-			myPsmt.setString(2, pw);
-			myRs = myPsmt.executeQuery();
-			if(myRs.next()) {
-				String name = myRs.getString("name");
-				String id2 = myRs.getString("id");
-				String pw2 = myRs.getString("pw");
-				String email = myRs.getString("email");
-				Timestamp date  = myRs.getTimestamp("date");
-				String address = myRs.getString("address");
-				dto = new DbDTO(name, id2, pw2, email, date, address);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (!myRs.isClosed()) myRs.close();
-				if (!myStmt.isClosed()) myStmt.close();
-				if (!myConn.isClosed()) myConn.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		return dto;
-	}
-	public String getId(String id) {
-		String id_result = "";
-		try {
-			SQL = "SELECT id FROM `"+ TABLE + "` WHERE id=?";
+			SQL = "SELECT pw FROM `"+ TABLE + "` WHERE id=?";
 			myConn = DriverManager.getConnection(URL, USER, PASSWORD);
 			myPsmt = myConn.prepareStatement(SQL);
 			myPsmt.setString(1, id);
 			myRs = myPsmt.executeQuery();
 			if(myRs.next()) {
-				id_result = myRs.getString("id");
+				String pwDb = myRs.getString("pw");
+				if (pw.equals(pwDb)) {	//== 사용 못함.
+					result = 2;
+				} else {
+					result = 1;
+				}
 			}
 		} catch (Exception e) {
+			System.out.println("DbDAO.getMember() error");
 			e.printStackTrace();
 		} finally {
 			try {
 				if (!myRs.isClosed()) myRs.close();
-				if (!myStmt.isClosed()) myStmt.close();
+				if (!myPsmt.isClosed()) myPsmt.close();
 				if (!myConn.isClosed()) myConn.close();
 			} catch (Exception e) {
+				System.out.println("DbDAO.getMember() error");
 				e.printStackTrace();
 			}
 		}
-		return id_result;
+		return result;
+	}
+	public boolean checkId(String id) {
+		boolean result = false;		//id 없음
+		try {
+			SQL = "SELECT * FROM `"+ TABLE + "` WHERE id=?";
+			myConn = DriverManager.getConnection(URL, USER, PASSWORD);
+			myPsmt = myConn.prepareStatement(SQL);
+			myPsmt.setString(1, id);
+			myRs = myPsmt.executeQuery();
+			if(myRs.next()) {
+				result = true;
+			}
+		} catch (Exception e) {
+			System.out.println("DbDAO.checkId() error");
+			e.printStackTrace();
+		} finally {
+			try {
+				if (!myRs.isClosed()) myRs.close();
+				if (!myPsmt.isClosed()) myPsmt.close();
+				if (!myConn.isClosed()) myConn.close();
+			} catch (Exception e) {
+				System.out.println("DbDAO.checkId() error");
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+	
+	public DbDTO memberGet(String id) {
+		DbDTO result = null;
+		try {
+			SQL = "SELECT * FROM `"+ TABLE + "` WHERE id=?";
+			myConn = DriverManager.getConnection(URL, USER, PASSWORD);
+			myPsmt = myConn.prepareStatement(SQL);
+			myPsmt.setString(1, id);
+			myRs = myPsmt.executeQuery();
+			if(myRs.next()) {
+				result = new DbDTO();
+				result.setName(myRs.getString("name"));
+				result.setId(myRs.getString("id"));
+				result.setPw(myRs.getString("pw"));
+				result.setEmail(myRs.getString("email"));
+				result.setDate(myRs.getTimestamp("date"));
+				result.setAddress(myRs.getString("address"));
+			}
+		} catch (Exception e) {
+			System.out.println("DbDAO.checkId() error");
+			e.printStackTrace();
+		} finally {
+			try {
+				if (!myRs.isClosed()) myRs.close();
+				if (!myPsmt.isClosed()) myPsmt.close();
+				if (!myConn.isClosed()) myConn.close();
+			} catch (Exception e) {
+				System.out.println("DbDAO.checkId() error");
+				e.printStackTrace();
+			}
+		}
+		return result;
 	}
 	
 	public int memberInsert(DbDTO dto) {
@@ -133,12 +139,41 @@ public class DbDAO {
 			myPsmt.setString(6, dto.getAddress());
 			i = myPsmt.executeUpdate();
 		} catch (Exception e) {
+			System.out.println("DbDAO.memberInsert() error");
 			e.printStackTrace();
 		} finally {
 			try {
 				if (!myPsmt.isClosed()) myPsmt.close();
 				if (!myConn.isClosed()) myConn.close();
 			} catch (Exception e) {
+				System.out.println("DbDAO.memberInsert() error");
+				e.printStackTrace();
+			}
+		}
+		return i;
+	}
+
+	public int memberUpdate(DbDTO dto) {
+		int i = 0;
+		try {
+			SQL = "UPDATE `"+ TABLE + "` set pw=?, name=?, email=?, address=? where id=?";
+			myConn = DriverManager.getConnection(URL, USER, PASSWORD);
+			myPsmt = myConn.prepareStatement(SQL);
+			myPsmt.setString(1, dto.getPw());
+			myPsmt.setString(2, dto.getName());
+			myPsmt.setString(3, dto.getEmail());
+			myPsmt.setString(4, dto.getAddress());
+			myPsmt.setString(5, dto.getId());
+			i = myPsmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("DbDAO.memberUpdate() error");
+			e.printStackTrace();
+		} finally {
+			try {
+				if (!myPsmt.isClosed()) myPsmt.close();
+				if (!myConn.isClosed()) myConn.close();
+			} catch (Exception e) {
+				System.out.println("DbDAO.memberUpdate() error");
 				e.printStackTrace();
 			}
 		}

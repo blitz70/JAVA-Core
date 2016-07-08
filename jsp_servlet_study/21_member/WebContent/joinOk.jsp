@@ -19,22 +19,30 @@
 	Timestamp date = new Timestamp(System.currentTimeMillis());
 	dto.setDate(date);		//빠진 date를 dto에 입력
 	DbDAO dao = DbDAO.getInstance();
-	if (dao.getId(dto.getId()) == "") {
-		dao.memberInsert(dto);
-		session.setAttribute("id", dto.getId());
+	if (dao.checkId(dto.getId())) {
 %>
 	<script type="text/javascript">
-			alert("회원 가입을 축하합니다.");
-			location = "login.jsp";
-	</script>
-<%
-	} else {
-%>
-	<script type="text/javascript">
-		alert("아이디가 이미 존재합니다.");
+		alert("회원가입에 실패 했습니다. 아이디가 이미 존재합니다.");
 		history.back();
 	</script>
 <%
+	} else {
+		if (dao.memberInsert(dto) == 1) {
+			session.setAttribute("id", dto.getId());
+%>
+	<script type="text/javascript">
+		alert("회원 가입을 축하합니다.");
+		location = "login.jsp";
+	</script>
+<%
+		} else {
+%>
+	<script type="text/javascript">
+		alert("회원 가입에 실패 했습니다.");
+		location = "login.jsp";
+	</script>
+<%
+		}
 	}
 %>
 </body>

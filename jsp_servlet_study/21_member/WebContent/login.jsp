@@ -15,6 +15,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<script language="JavaScript" src="member.js"></script>
 </head>
 <body>
 <h1>로그인 페이지 입니다.</h1>
@@ -22,7 +23,7 @@
 	아이디 : <input type="text" name="id" value="<%= id %>"><br>
 	비밀번호 : <input type="password" name="pw" value="">
 	<br><br>
-	<input type="submit" value="로그인">
+	<input type="button" value="로그인"  onclick="checkLogin()">
 	<input type="button" value="회원가입" onclick="location='join.jsp'">
 	</form>
 </body>
