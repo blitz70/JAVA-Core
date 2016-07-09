@@ -202,6 +202,7 @@ General
 	General
 		JDBC : Java Database Connectivity
 		Exception : JDBC 코드는 항상 error 처리 필수, try-catch
+		connector 설치 다른 방법 확인
 	절차
 		JDBC 드라이버 로드
 			Class.forName(driver)
@@ -253,3 +254,25 @@ General
 	
 21 Member
 	회원관리 웹앱
+	
+22 File
+	Upload : local -> server
+		jdk\jre\lib\ext 작동 안함
+		준비
+			1. COS library 다운로드
+				www.servlets.com -> com.oreilly.servlet
+			2. 프로젝트 설정
+				WebContent\WEB_INF\lib 로 cos.jar 복사
+				build path update
+			3. 서버 설정
+				WebContent\파일폴더
+		동작
+			local에서 올린 파일은 서버에 있음.
+			톰켓\wtpwebapps\프로젝트명\파일폴더
+		Form
+			<form action="" method="post" enctype="multipart/form-data">
+			<input type="file" name="myfile">
+			<input type="submit" value="File Upload">
+			</form>	
+	Download : server -> local
+		추후 확인
