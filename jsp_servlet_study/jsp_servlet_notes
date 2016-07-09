@@ -229,7 +229,7 @@ General
 		while(myRs.next()) {String id = myRs.getString("id");String pw = myRs.getString("pw");}
 		myRs.close(); myStmt.close(); myConn.close();
 		
-20 DBCP
+20 DBCP (hard)
 	General
 		DBCP : Database Connection Pooling
 		JSP/Servlet 코드 관리를 위해 DB관련 코드를 따른 클래스로 분리
@@ -255,7 +255,7 @@ General
 21 Member
 	회원관리 웹앱
 	
-22 File
+22 File (hard)
 	Upload : local -> server
 		jdk\jre\lib\ext 작동 안함
 		준비
@@ -275,4 +275,14 @@ General
 			<input type="submit" value="File Upload">
 			</form>	
 	Download : server -> local
-		추후 확인
+	Management : server에서 생성, 수정, 이동, 삭제
+
+23 EL, Expression Language (hard)
+	General
+		JSP expression/action tag를 간략하게 하는 방법
+		JSP expression : <%= value %> -> EL : ${value}
+	action-tag
+	built-in
+		강의8 참고
+		pageScope requestScope sessionScope applicationScope
+		param paramValues initParam cookie
