@@ -12,15 +12,12 @@
 	try {
 		MultipartRequest multi = new MultipartRequest(request, path, size, "EUC-KR", new DefaultFileRenamePolicy());
 		Enumeration files = multi.getFileNames();
-		String str = (String) files.nextElement();
-		
+		String str = files.nextElement().toString();
 		file = multi.getFilesystemName(str);
 		fileOriginal = multi.getOriginalFileName(str);
-		
 	} catch (Exception e) {
 		e.printStackTrace();		
 	}
-	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

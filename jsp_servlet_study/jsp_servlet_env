@@ -66,4 +66,19 @@ DBCP
 			driverClassName = "com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/jdbc" username="blitz" password="mysql"
 		/>
 	2. republish
-			
+
+JAR
+	외부 library의 경우 설치는 어떻게? 한곳에다 넣으면 되는지 아니면 넣는곳이 따로 있는지?
+	JDK폴더\lib\ext
+	프로젝트의 WebContent\WEB_INF\lib
+
+File
+	Upload
+		jdk\jre\lib\ext 작동 안함
+		cos.jar
+			1. COS library 다운로드 : www.servlets.com -> com.oreilly.servlet
+			2. 프로젝트 설정 : WebContent\WEB_INF\lib 로 cos.jar 복사, 	build path update
+			3. 서버 설정 : 	WebContent\파일폴더
+		동작
+			local에서 올린 파일은 서버에 있음.
+			톰켓폴더\wtpwebapps\프로젝트명\파일폴더
