@@ -82,3 +82,9 @@ File
 		동작
 			local에서 올린 파일은 서버에 있음.
 			톰켓폴더\wtpwebapps\프로젝트명\파일폴더
+
+JSTL
+	Download : http://archive.apache.org/dist/jakarta/taglibs/standard/binaries/jakarta-taglibs-standard-1.1.2.zip
+	JAR : jstl.jar standard.jar
+	Project setting : WebContent\WEB_INF\lib 로 jar파일 복사, build path update, tomcat에?
+	

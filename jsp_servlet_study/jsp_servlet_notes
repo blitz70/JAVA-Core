@@ -275,3 +275,28 @@ General
 		강의8 참고
 		pageScope requestScope sessionScope applicationScope
 		param paramValues initParam cookie
+24 JSTL
+	JSP Standard Tag Library
+	설명
+		JSP 코드 가독성이 떨어지는 단점을 보완하기 위한 방법
+		5가지 Library 제공. Core, XML Processing, I18N formatting, SQL, Functions
+		Library 설치가 별도로 필요
+	Core
+		출력 제어문 반복문 같은 기능이 포함된 basic library
+		JSTL 사용 선언
+			<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+		변수 설정/출력/삭제
+			<c:set var="변수명" value="값" target="객체" property="속성" scope="범위">
+			<c:out value="값">
+			<c:remove var="변수명" scope="범위">
+		예외 처리
+			<c:catch var="변수명">코드</c:catch>
+		제어 if, (else?)
+			<c:if test="조건">true코드</c:if>
+		제어 switch
+		반복 for
+			<c:forEach items= "객체명" var="변수명" begin="시작" end="끝" step="증감">반복코드</c:forEach>
+		페이지 이동
+			<c:redirect url="주소">
+		패러미터 전달
+			<c:param name="패러미터명" value="값">
