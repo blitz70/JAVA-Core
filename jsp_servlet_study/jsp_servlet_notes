@@ -278,7 +278,8 @@ General
 24 JSTL
 	JSP Standard Tag Library
 	설명
-		JSP 코드 가독성이 떨어지는 단점을 보완하기 위한 방법
+		HTML 코드에 JSP 코드가 추가 되면 전체 코드의 가독성이 떨어짐.
+		JSP를 HTML 문법과 동일한 markup tag 방식으로 제공하여 가독성이 떨어지는 문제 해결.  
 		5가지 Library 제공. Core, XML Processing, I18N formatting, SQL, Functions
 		Library 설치가 별도로 필요
 	Core
