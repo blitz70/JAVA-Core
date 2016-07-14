@@ -12,11 +12,13 @@
 <body>
 
 	<!-- variable simple -->
+	JSP :<br>
 	<% String varName1 = "varValue1"; %>
 	varName1 : ${varName1}
 	<br>
 	varName1 : <%=varName1%>
 	<br><br>
+	JSTL :<br>
 	<c:set var="varName2" value="varValue2" />
 	varName2 : ${varName2}
 	<br>
@@ -25,26 +27,23 @@
 	<c:remove var="varName2"/>
 	varName2 : <c:out value="${varName2}" />
 	<hr>
+	
 	<!-- variable object -->
-	<jsp:useBean id="student1" class="kr.co.iamtek.Student" />
+	JSP :
 	<%
+		Student student1 = new Student();
 		student1.setName("김성규");
 		student1.setGrade("A");
 		student1.setRank("4");
 	%>
-	student1 : ${student1.getName()}
+	student1 : <%= student1.getName() %> <%= student1.getGrade() %> <%= student1.getRank() %>
 	<br>
-	<%
-		Student student2 = new Student();
-	%>
-	<c:set target="<%= student2 %>" property="name" value="오지은"/>
-	student2 : <c:out value="${student2.name}" />
-	
-	<!--
-	<c:set var="student3" value="student4" />
-	<c:set var="student3" target=""  property="name" value="오지은"/>
-	student2 : ${student2}
-	  -->
+	JSTL :
+	<c:set var="student2" value="<%= new Student() %>"/>
+	<c:set target="${student2}"  property="name" value="오지은"/>
+	<c:set target="${student2}"  property="grade" value="A"/>
+	<c:set target="${student2}"  property="rank" value="10"/>
+	student2 : <c:out value="${student2.name}" /> ${student2.grade} ${student2.rank}
 	<br>
 
 </body>
