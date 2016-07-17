@@ -322,3 +322,14 @@ General
 		클라이언트의 다양한 요청들을 한곳으로 집중하고 처리, 개발/유지보수에 유리
 	Command-pattern
 		요청들을 한곳으로 집중하되 직접 처리하지 않고 처리할 클래스에게 위임
+
+26 Forwarding
+	General
+		Servlet/JSP에서 받은 요청을 직접 처리하지 않고 다른곳/component에 넘기거나 위임
+	RequestDispatcher
+		요청 받은 요청객체(request)를 위임 component에게 그대로/동일하게 전달
+		ex
+			RequestDispatcher dispatcher = request.getRequestDispatcher("컴포넌트");
+			dispatcher.forward(request, response);
+	HttpServletResponse
+		요청을 다른곳에 위임하되 요청객체는 유지되지 않고 새로 생성됨
