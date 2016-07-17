@@ -50,3 +50,5 @@
 * Web app - member management
 * File upload
 * Expression Language
+* JSTL
+* Controller

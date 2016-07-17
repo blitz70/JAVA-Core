@@ -2,6 +2,7 @@ package kr.co.iamtek;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -43,7 +44,6 @@ public class MyFrontController extends HttpServlet {
 		String uri = request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String command = uri.substring(contextPath.length());
-		
 
 		if(command.equals("/membersAll.do")) {
 			response.setContentType("text/html; charset=EUC-KR");
@@ -51,9 +51,18 @@ public class MyFrontController extends HttpServlet {
 			writer.println("<html><head></head><body>");
 			
 			Service service = new MembersAllService();
-
-
-			writer.println("<a href='frontController.jsp'>처음으로</a>");
+			ArrayList<DbDTO> dtos = service.execute(request, response);
+			
+			for (int i = 0; i < dtos.size(); i++) {
+				DbDTO dto = dtos.get(i);
+				String name = dto.getName();
+				String id = dto.getId();
+				String email = dto.getEmail();
+				String address = dto.getAddress();
+				String date = dto.getDate().toString();
+				writer.println("name : "+name+", id : "+id+", email : "+email+", address : "+address+", date : "+date+"<br>");
+			}
+			writer.println("<a href='main.jsp'>메인</a>");
 			writer.println("</body></html>");
 			writer.close();
 		}

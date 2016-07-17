@@ -275,6 +275,7 @@ General
 		강의8 참고
 		pageScope requestScope sessionScope applicationScope
 		param paramValues initParam cookie
+		
 24 JSTL (hard)
 	JSP Standard Tag Library
 	설명
@@ -317,5 +318,7 @@ General
 			many url ->1 servlet
 			.../hello.do	-> *.do
 			.../world.do	-> *.do
-	FrontController-pattern : 클라이언트의 다양한 요청들을 한곳으로 집중하고 처리, 개발/유지보수에 유리
-	Command-pattern : 요청들을 한곳으로 집중하되 직접 처리하지 않고 처리할 클래스에게 위임
+	FrontController-pattern
+		클라이언트의 다양한 요청들을 한곳으로 집중하고 처리, 개발/유지보수에 유리
+	Command-pattern
+		요청들을 한곳으로 집중하되 직접 처리하지 않고 처리할 클래스에게 위임

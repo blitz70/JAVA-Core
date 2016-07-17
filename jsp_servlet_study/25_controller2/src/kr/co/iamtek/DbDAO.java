@@ -182,7 +182,37 @@ public class DbDAO {
 	}
 	
 	public ArrayList<DbDTO> membersAll() {
-		return null;
+		ArrayList<DbDTO> result = new ArrayList<DbDTO>();
+		try {
+			SQL = "SELECT * FROM `"+ TABLE + "`";
+			myConn = DriverManager.getConnection(URL, USER, PASSWORD);
+			myPsmt = myConn.prepareStatement(SQL);
+			myRs = myPsmt.executeQuery();
+			while (myRs.next()) {
+				DbDTO dto = new DbDTO();
+				dto.setName(myRs.getString("name"));
+				dto.setId(myRs.getString("id"));
+				dto.setPw(myRs.getString("pw"));
+				dto.setEmail(myRs.getString("email"));
+				dto.setDate(myRs.getTimestamp("date"));
+				dto.setAddress(myRs.getString("address"));
+				result.add(dto);
+				System.out.println(dto.getName()+ " " + dto.getId());
+			}
+		} catch (Exception e) {
+			System.out.println("DbDAO.membersAll() error");
+			e.printStackTrace();
+		} finally {
+			try {
+				if (myRs!=null) myRs.close();
+				if (myPsmt!=null) myPsmt.close();
+				if (myConn!=null) myConn.close();
+			} catch (Exception e) {
+				System.out.println("DbDAO.membersAll() error");
+				e.printStackTrace();
+			}
+		}
+		return result;
 	}
 
 }

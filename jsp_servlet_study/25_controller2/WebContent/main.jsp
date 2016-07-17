@@ -17,9 +17,11 @@
 </head>
 <body>
 <h1>어서오세요 <%= id %>님, 메인 페이지 입니다.</h1>
+	<input type="button" value="회원 정보 수정" onclick="location='modify.jsp'">
+	<input type="button" value="전체 회원 정보 조회" onclick="location='membersAll.do'">
+	<hr>
 	<form action="logout.jsp" method="post">
 		<input type="submit" value="로그아웃">
-		<input type="button" value="정보수정" onclick="location='modify.jsp'">
 	</form>
 </body>
 </html>
