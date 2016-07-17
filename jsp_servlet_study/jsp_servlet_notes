@@ -282,7 +282,7 @@ General
 		JSP를 HTML 문법과 동일한 markup tag 방식으로 제공하여 가독성이 떨어지는 문제 해결.  
 		5가지 Library 제공. Core, XML Processing, I18N formatting, SQL, Functions
 		Library 설치가 별도로 필요
-		객체 처리 공부 필요
+		객체 처리 (난이도 상)
 	Core
 		출력 제어문 반복문 같은 기능이 포함된 basic library
 		JSTL 사용 선언
@@ -306,3 +306,16 @@ General
 			<c:redirect url="주소">
 		패러미터 전달
 			<c:param name="패러미터명" value="값">
+
+25 Controller
+	URL-pattern
+		Directory pattern : servlet mapping, 디렉토리 형태로 서버의 해당 컴포넌트를 찾아 실행
+			1 url -> 1 servlet
+			.../Hello	-> /Hello
+			.../World	-> /World
+		Extension pattern : 확장자 형태로 컴포넌트를 찾고 sevlet내에서 알아서 실행
+			many url ->1 servlet
+			.../hello.do	-> *.do
+			.../world.do	-> *.do
+	FrontController-pattern : 클라이언트의 다양한 요청들을 한곳으로 집중하고 처리, 개발/유지보수에 유리
+	Command-pattern : 요청들을 한곳으로 집중하되 직접 처리하지 않고 처리할 클래스에게 위임

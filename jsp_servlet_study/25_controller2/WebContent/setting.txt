@@ -1,0 +1,9 @@
+데이터베이스
+CREATE SCHEMA `jdbc` DEFAULT CHARACTER SET utf8 ;
+CREATE TABLE `jdbc`.`members` (
+  `id` VARCHAR(45) NULL,
+  `pw` VARCHAR(45) NULL,
+  `name` VARCHAR(45) NULL,
+  `email` VARCHAR(45) NULL,
+  `date` DATE NULL,
+  `address` VARCHAR(45) NULL);
