@@ -350,3 +350,7 @@ API
 			mytimer.schedule(t1, 2000);
 		Thread.sleep() : 실행 일시 중지
 	StringTokenizer
+
+Input/Output
+	Input : read, 읽기, 가져오기, 파일/키보드/네트워크상 데이터를 읽는다
+	Output : write, 쓰기, 내보내기, 파일/모니터/네트워크상에 데이터를 쓴다/출력/전송
