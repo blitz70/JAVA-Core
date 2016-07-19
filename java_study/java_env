@@ -41,8 +41,6 @@ Execution
 	classpath : "java/bin", ".;path1;path2;path3", "." 현재 디렉토리, linux는 ";" 대신 ":" 사용
 	package : kr.co.iamtek.java_tutorials.io
 	class : Input.class
-j	ava -cp "java/bin" kr.co.iamtek.java_tutorials.io.Input  
+	java -cp "java/bin" kr.co.iamtek.java_tutorials.io.Input
     
 Eclipse
-  ctrl+d : line 지우기
-  ctrl+z : 취소

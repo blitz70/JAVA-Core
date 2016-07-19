@@ -1,0 +1,2 @@
+﻿Weather today is fine indeed!
+오늘의 날씨는 참 좋습니다!

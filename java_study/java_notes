@@ -351,6 +351,21 @@ API
 		Thread.sleep() : 실행 일시 중지
 	StringTokenizer
 
-Input/Output
-	Input : read, 읽기, 가져오기, 파일/키보드/네트워크상 데이터를 읽는다
-	Output : write, 쓰기, 내보내기, 파일/모니터/네트워크상에 데이터를 쓴다/출력/전송
+Input/Output (hard)
+	General
+		Input : read, 읽기, 가져오기, 파일/키보드/네트워크상 데이터를 읽는다
+		Output : write, 쓰기, 내보내기, 파일/모니터/네트워크상에 데이터를 쓴다/출력/전송
+		Reader/Writer : 2byte, text string
+		InputStream/OutputStream : 1byte, image & video, 권장
+		exception handling
+		close()로 연결 해제
+	InputStream
+		read() : 1byte 단위로 읽기, 느림, 내용 없으면 -1 반환
+		read(byte[]) : byte[] 만큼 읽기, 빠름, 읽은 크기 반환, 내용 없으면 -1 반환
+	OutputStream
+		write(byte[]) : byte[] 만큼 쓰기
+		write(byte[], int, int) : byte[]의 지정된 만큼만 쓰기, 끝부분에 사용
+	DataInputStream/DataOutputStream
+		readUTF() : 작동 안함, EOF 오류
+		writeUTF(문자열) : 문자열 쓰기
+		문자열 복사 잘 안됨, 한글 깨짐
