@@ -333,3 +333,11 @@ General
 			dispatcher.forward(request, response);
 	HttpServletResponse
 		요청을 다른곳에 위임하되 요청객체는 유지되지 않고 새로 생성됨
+		
+27 App - MVC board
+	Oracle -> MySQL : sequence 처리?
+	member app 연동?
+	글 목록 보기
+	글 내용 보기
+	글 내용 수정
+	글 삭제

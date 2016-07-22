@@ -48,9 +48,10 @@
 * Java Bean
 * JDBC
 * DBCP
-* Web app - member management
+* App - member management
 * File upload
 * Expression Language
 * JSTL
 * Controller
 * Forwarding
+* App - MVC board
