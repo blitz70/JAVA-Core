@@ -78,6 +78,47 @@ public class BoardDAO {
 		return result;
 	}
 
+  public BoardDTO getContent(String bNumber) {
+    BoardDTO result = null;
+    try {
+      sql = "SELECT * FROM `"+ TABLE + "` WHERE bNumber=?";
+      conn = DriverManager.getConnection(URL, USER, PASSWORD);
+      psmt = conn.prepareStatement(sql);
+      psmt.setString(1, bNumber);
+      rs = psmt.executeQuery();
+      while (rs.next()) {
+            result = new BoardDTO(
+            rs.getInt("bNumber"),
+            rs.getString("bAuthor"),
+            rs.getString("bTitle"),
+            rs.getString("bContent"),
+            rs.getTimestamp("bDate"),
+            rs.getInt("bHit"),
+            rs.getInt("bGroup"),
+            rs.getInt("bStep"),
+            rs.getInt("bIndent")
+            );
+      }
+    } catch (Exception e) {
+      System.out.println("BoardDAO.getContent() error1");
+      e.printStackTrace();
+    } finally {
+      try {
+        if (rs!=null) rs.close();
+        if (psmt!=null) psmt.close();
+        if (conn!=null) conn.close();
+      } catch (Exception e) {
+        System.out.println("BoardDAO.getContent() error2");
+        e.printStackTrace();
+      }
+    }
+    return result;
+  }
+
+  public void modify(String bNumber, String bTitle, String bContent) {
+    
+  }
+
 		/*
 	public int checkMember(String id, String pw) {
 		int result = 0;	//2:모두 일치, 1:id 일치, 0: 모두 틀림

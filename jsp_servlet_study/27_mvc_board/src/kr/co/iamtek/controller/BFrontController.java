@@ -1,9 +1,6 @@
 package kr.co.iamtek.controller;
 
 import java.io.IOException;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,8 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import kr.co.iamtek.db.BoardDTO;
 
 /**
  * Servlet implementation class BFrontController
@@ -56,21 +51,25 @@ public class BFrontController extends HttpServlet {
 			bcmd = new BListCommand();
 			bcmd.exectute(request, response);
 			viewPage = "list.jsp";
+    } else if (cmd.equals("/content_view.do")) {
+      bcmd = new BContentCommand();
+      bcmd.exectute(request, response);
+      viewPage = "content_view.jsp";
+    } else if (cmd.equals("/modify.do")) {
+      bcmd = new BModifyCommand();
+      bcmd.exectute(request, response);
+      viewPage = "list.do";
 		} else if (cmd.equals("/write_view.do")) {
 			System.out.println("write_view");
 		} else if (cmd.equals("/write.do")) {
 			System.out.println("write");
-		} else if (cmd.equals("/content_view.do")) {
-			System.out.println("content_view");
-		} else if (cmd.equals("/modify.do")) {
-			System.out.println("modify");
 		} else if (cmd.equals("/delete.do")) {
 			System.out.println("delete");
 		} else if (cmd.equals("/reply_view.do")) {
 			System.out.println("reply_view");
 		} else if (cmd.equals("/reply.do")) {
 			System.out.println("reply");
-		}
+		} else viewPage = "Gate.html";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

@@ -11,3 +11,20 @@ CREATE TABLE `mydb`.`mvc_board` (
   `bStep` INT NULL,
   `bIndent` INT NULL,
   PRIMARY KEY (`bNumber`));
+  
+INSERT INTO `mydb`.`mvc_board`
+(`bAuthor`,
+`bTitle`,
+`bContent`,
+`bHit`,
+`bGroup`,
+`bStep`,
+`bIndent`)
+VALUES
+('blitz1',
+'Title1',
+'Content1',
+10,
+last_insert_id()+1,
+0,
+0);

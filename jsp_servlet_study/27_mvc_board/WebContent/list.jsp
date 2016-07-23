@@ -12,24 +12,41 @@
 </head>
 <body>
 
-	<%
-		ArrayList<BoardDTO> dtos = (ArrayList<BoardDTO>) request.getAttribute("list");
-		Iterator<BoardDTO> i = dtos.iterator();
-		while (i.hasNext()) {
-			BoardDTO dto = i.next();
-			int bNumber = dto.getbNumber();
-			String bAuthor = dto.getbAuthor();
-			String bTitle = dto.getbTitle();
-			String bContent = dto.getbContent();
-			Timestamp bDate = dto.getbDate();
-			int bHit = dto.getbHit();
-			int bGroup = dto.getbGroup();
-			int bStep = dto.getbStep();
-			int bIndent = dto.getbIndent();
-	%>
-		<%= dto.getbNumber() %> : <%= dto.getbAuthor() %> : <%= dto.getbTitle() %> : <%= dto.getbContent() %> : <%= dto.getbDate() %> : <%= dto.getbGroup() %> : <%= dto.getbStep() %> : <%= dto.getbIndent() %><br>
-	<%
-		}
-	%>
+	<table width="500" border="1">
+		<tr bgcolor="grey">
+			<th>번호</th>
+			<th width="200">제목</th>
+			<th width="100">이름</th>
+			<th>날짜</th>
+			<th>조회</th>
+		</tr>
+		<%
+		  ArrayList<BoardDTO> dtos = (ArrayList<BoardDTO>) request.getAttribute("list");
+		  Iterator<BoardDTO> i = dtos.iterator();
+		  while (i.hasNext()) {
+		    BoardDTO dto = i.next();
+		%>
+		<tr align="right">
+			<td><%=dto.getbNumber()%></td>
+			<td align="left">
+				<%
+					for(int j = 0; j < dto.getbIndent(); j++) out.print("-");
+				%>
+				<a href="content_view.do?bNumber=<%= dto.getbNumber()%>"><%=dto.getbTitle()%></a>
+			</td>
+			<td><%=dto.getbAuthor()%></td>
+			<td><%=dto.getbDate()%></td>
+			<td><%=dto.getbHit()%></td>
+		</tr>
+		<%
+		  }
+		%>
+		<tr>
+			<td colspan="5" align="center">
+				<a href="write_view.do"><button>글 쓰기</button></a>
+			</td>
+		</tr>
+	</table>
+	
 </body>
 </html>

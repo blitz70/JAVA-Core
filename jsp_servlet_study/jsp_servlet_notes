@@ -336,8 +336,15 @@ General
 		
 27 App - MVC board
 	Oracle -> MySQL : sequence 처리?
-	member app 연동?
-	글 목록 보기
-	글 내용 보기
-	글 내용 수정
-	글 삭제
+		last_insert_id()+1 : column에 primary key와 동일 값 입력
+		빈 테이블의 경우 1을 입력하도록 처리
+		SELECT AUTO_INCREMENT FROM information_schema.tables WHERE TABLE_NAME = 'table'
+	DBCP 로 업그레이드
+	member app 연동
+	Optimize (look, checking)
+	Make
+		list posts - ok
+		view post - ok
+		edit
+		delete
+		reply
