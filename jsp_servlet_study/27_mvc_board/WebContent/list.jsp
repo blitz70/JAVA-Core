@@ -12,13 +12,13 @@
 </head>
 <body>
 
-	<table width="500" border="1">
+	<table width="700" border="1">
 		<tr bgcolor="grey">
-			<th>번호</th>
-			<th width="200">제목</th>
-			<th width="100">이름</th>
-			<th>날짜</th>
-			<th>조회</th>
+			<th>번 호</th>
+			<th width="200">제 목</th>
+			<th width="100">이 름</th>
+			<th width="200">날 짜</th>
+			<th>조 회</th>
 		</tr>
 		<%
 		  ArrayList<BoardDTO> dtos = (ArrayList<BoardDTO>) request.getAttribute("list");
@@ -43,7 +43,7 @@
 		%>
 		<tr>
 			<td colspan="5" align="center">
-				<a href="write_view.do"><button>글 쓰기</button></a>
+				<a href="new_view.do"><button>글 쓰기</button></a>
 			</td>
 		</tr>
 	</table>

@@ -14,26 +14,26 @@
 	%>
 	<form action="modify.do" method="post">
 		<input type="hidden" name="bNumber" value="<%= dto.getbNumber() %>">
-		<table width="500" border="1">
+		<table width="700" border="1">
 			<tr>
-				<td bgcolor="grey">번호</td><td><%= dto.getbNumber() %></td>
-				<td bgcolor="grey">조회</td><td><%= dto.getbHit() %></td>
-				<td bgcolor="grey">이름</td><td><%= dto.getbAuthor() %></td>
+				<td bgcolor="grey" width="50">번 호</td><td><%= dto.getbNumber() %></td>
+				<td bgcolor="grey" width="50">조 회</td><td><%= dto.getbHit() %></td>
+				<td bgcolor="grey" width="50">이 름</td><td><%= dto.getbAuthor() %></td>
 			</tr>
 			<tr>
-				<td bgcolor="grey">제목</td><td colspan="5"><input type="text" size="60" name="bTitle" value="<%= dto.getbTitle() %>"></td>
+				<td bgcolor="grey">제 목</td><td colspan="5"><input type="text" size="90" name="bTitle" value="<%= dto.getbTitle() %>"></td>
 			</tr>
 			<tr>
-				<td bgcolor="grey">내용</td><td colspan="5"><textarea rows="5" cols="60" name="bContent" ><%= dto.getbContent() %></textarea></td>
+				<td bgcolor="grey">내 용</td><td colspan="5"><textarea rows="10" cols="90" name="bContent" ><%= dto.getbContent() %></textarea></td>
 			</tr>
 			<tr>
-				<td colspan="6" align="center"><input type="submit" value="수정"></td>
+				<td colspan="6" align="center"><input type="submit" value="글 수정"></td>
 			</tr>
 		</table>
 	</form>
 	<a href="list.do"><button>글 목록</button></a>
-	<a href="delete.do"><button>글 삭제</button></a>
-	<a href="reply.do"><button>댓글 달기</button></a>
+	<a href="delete.do?bNumber=<%= dto.getbNumber()%>"><button>글 삭제</button></a>
+	<a href="reply_view.do?bNumber=<%= dto.getbNumber()%>"><button>댓글 달기</button></a>
 
 </body>
 </html>

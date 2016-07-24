@@ -5,15 +5,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.co.iamtek.db.*;
 
-public class BModifyCommand implements BCommand {
+public class BNewCommand implements BCommand {
 
 	@Override
 	public void exectute(HttpServletRequest request, HttpServletResponse response) {
-		String bNumber = request.getParameter("bNumber");
+		String bAuthor = request.getParameter("bAuthor");
     String bTitle = request.getParameter("bTitle");
     String bContent = request.getParameter("bContent");
 	  BoardDAO dao = BoardDAO.getInstance();
-	  dao.modifyContent(bNumber, bTitle, bContent);
+		dao.newContent(bAuthor, bTitle, bContent); 
 	}
 
 }

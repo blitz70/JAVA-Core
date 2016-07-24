@@ -12,7 +12,7 @@ public class BListCommand implements BCommand {
 	@Override
 	public void exectute(HttpServletRequest request, HttpServletResponse response) {
 		BoardDAO dao = BoardDAO.getInstance();
-		ArrayList<BoardDTO> dtos = dao.list(); 
+		ArrayList<BoardDTO> dtos = dao.listContents(); 
 		request.setAttribute("list", dtos);
 	}
 

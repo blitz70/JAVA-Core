@@ -335,16 +335,15 @@ General
 		요청을 다른곳에 위임하되 요청객체는 유지되지 않고 새로 생성됨
 		
 27 App - MVC board
-	Oracle -> MySQL : sequence 처리?
-		last_insert_id()+1 : column에 primary key와 동일 값 입력
-		빈 테이블의 경우 1을 입력하도록 처리
-		SELECT AUTO_INCREMENT FROM information_schema.tables WHERE TABLE_NAME = 'table'
 	DBCP 로 업그레이드
 	member app 연동
 	Optimize (look, checking)
 	Make
-		list posts - ok
-		view post - ok
-		edit
-		delete
-		reply
+		new - ok
+			bDate : now()
+			gGroup : last_insert_id() doesn't work in statement query, temp solution(set to 0 at insert, then set to primary key value at update)
+		list - ok
+		get - ok
+		modify - ok
+		delete - ok
+		reply - ok

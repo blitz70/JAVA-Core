@@ -14,7 +14,7 @@ public class BoardDAO {
 	private static BoardDAO INSTANCE;
 	
 	private final String DRIVER = "com.mysql.jdbc.Driver";
-	private final String URL = "jdbc:mysql://localhost:3306/mydb";
+	private final String URL = "jdbc:mysql://localhost:3306/mydb?useSSL=false";  //useSSL=false to prevent looong warning
 	private final String USER = "blitz";
 	private final String PASSWORD = "mysql";
 	private final String TABLE = "mvc_board";
@@ -40,12 +40,45 @@ public class BoardDAO {
 			return INSTANCE;
 		}
 	}
+	
+	private void closeDAO() {
+	  try {
+	    if (rs != null) rs.close();
+      if (psmt != null) psmt.close();
+      if (conn != null) conn.close();
+    } catch (Exception e) {
+      System.out.println("BoardDAO.close() error");
+      e.printStackTrace();
+    }
+	}
+	
+  public int newContent(String bAuthor, String bTitle, String bContent) {
+    int result = 0;
+    try {
+      conn = DriverManager.getConnection(URL, USER, PASSWORD);
+      sql = "INSERT INTO `" + TABLE + "` (`bAuthor`, `bTitle`, `bContent`, `bDate`, `bHit`, `bGroup`, `bStep`, `bIndent`) VALUES (?, ?, ?, now(), 0, 0, 0, 0)";
+      psmt = conn.prepareStatement(sql);
+      psmt.setString(1, bAuthor);
+      psmt.setString(2, bTitle);
+      psmt.setString(3, bContent);
+      result = psmt.executeUpdate();
+      sql = "UPDATE `"+ TABLE + "` SET bGroup =bNumber WHERE bGroup=0";
+      psmt = conn.prepareStatement(sql);
+      psmt.executeUpdate();
+    } catch (Exception e) {
+      System.out.println("BoardDAO.newContent() error");
+      e.printStackTrace();
+    } finally {
+      closeDAO();
+    }
+    return result;
+  }
 
-	public ArrayList<BoardDTO> list() {
+	public ArrayList<BoardDTO> listContents() {
 		ArrayList<BoardDTO> result = new ArrayList<BoardDTO>();
 		try {
-			sql = "SELECT * FROM `"+ TABLE + "` ORDER BY bGroup DESC, bStep ASC";
-			conn = DriverManager.getConnection(URL, USER, PASSWORD);
+      conn = DriverManager.getConnection(URL, USER, PASSWORD);
+			sql = "SELECT * FROM `" + TABLE + "` ORDER BY bGroup DESC, bStep ASC";
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			while (rs.next()) {
@@ -63,17 +96,10 @@ public class BoardDAO {
 				result.add(dto);
 			}
 		} catch (Exception e) {
-			System.out.println("BoardDAO.list() error");
+			System.out.println("BoardDAO.listContents() error");
 			e.printStackTrace();
 		} finally {
-			try {
-				if (rs!=null) rs.close();
-				if (psmt!=null) psmt.close();
-				if (conn!=null) conn.close();
-			} catch (Exception e) {
-				System.out.println("BoardDAO.list() error");
-				e.printStackTrace();
-			}
+			closeDAO();
 		}
 		return result;
 	}
@@ -81,8 +107,8 @@ public class BoardDAO {
   public BoardDTO getContent(String bNumber) {
     BoardDTO result = null;
     try {
-      sql = "SELECT * FROM `"+ TABLE + "` WHERE bNumber=?";
       conn = DriverManager.getConnection(URL, USER, PASSWORD);
+      sql = "SELECT * FROM `" + TABLE + "` WHERE bNumber=?";
       psmt = conn.prepareStatement(sql);
       psmt.setString(1, bNumber);
       rs = psmt.executeQuery();
@@ -103,168 +129,84 @@ public class BoardDAO {
       System.out.println("BoardDAO.getContent() error1");
       e.printStackTrace();
     } finally {
-      try {
-        if (rs!=null) rs.close();
-        if (psmt!=null) psmt.close();
-        if (conn!=null) conn.close();
-      } catch (Exception e) {
-        System.out.println("BoardDAO.getContent() error2");
-        e.printStackTrace();
-      }
+     closeDAO();
     }
     return result;
   }
 
-  public void modify(String bNumber, String bTitle, String bContent) {
-    
+  public int modifyContent(String bNumber, String bTitle, String bContent) {
+    int result = 0;
+    try {
+      conn = DriverManager.getConnection(URL, USER, PASSWORD);
+      sql = "UPDATE `" + TABLE + "` SET bTitle=?, bContent=? WHERE bNumber=?";
+      psmt = conn.prepareStatement(sql);
+      psmt.setString(1, bTitle);
+      psmt.setString(2, bContent);
+      psmt.setString(3, bNumber);
+      result = psmt.executeUpdate();
+    } catch (Exception e) {
+      System.out.println("BoardDAO.modifyContent() error");
+      e.printStackTrace();
+    } finally {
+      closeDAO();
+    }
+    return result;
   }
 
-		/*
-	public int checkMember(String id, String pw) {
-		int result = 0;	//2:모두 일치, 1:id 일치, 0: 모두 틀림
-		try {
-			SQL = "SELECT pw FROM `"+ TABLE + "` WHERE id=?";
-			myConn = DriverManager.getConnection(URL, USER, PASSWORD);
-			myPsmt = myConn.prepareStatement(SQL);
-			myPsmt.setString(1, id);
-			myRs = myPsmt.executeQuery();
-			if(myRs.next()) {
-				String pwDb = myRs.getString("pw");
-				if (pw.equals(pwDb)) {	//== 사용 못함.
-					result = 2;
-				} else {
-					result = 1;
-				}
-			}
-		} catch (Exception e) {
-			System.out.println("DbDAO.getMember() error");
-			e.printStackTrace();
-		} finally {
-			try {
-				if (!myRs.isClosed()) myRs.close();
-				if (!myPsmt.isClosed()) myPsmt.close();
-				if (!myConn.isClosed()) myConn.close();
-			} catch (Exception e) {
-				System.out.println("DbDAO.getMember() error");
-				e.printStackTrace();
-			}
-		}
-		return result;
-	}
-	public boolean checkId(String id) {
-		boolean result = false;		//id 없음
-		try {
-			SQL = "SELECT * FROM `"+ TABLE + "` WHERE id=?";
-			myConn = DriverManager.getConnection(URL, USER, PASSWORD);
-			myPsmt = myConn.prepareStatement(SQL);
-			myPsmt.setString(1, id);
-			myRs = myPsmt.executeQuery();
-			if(myRs.next()) {
-				result = true;
-			}
-		} catch (Exception e) {
-			System.out.println("DbDAO.checkId() error");
-			e.printStackTrace();
-		} finally {
-			try {
-				if (!myRs.isClosed()) myRs.close();
-				if (!myPsmt.isClosed()) myPsmt.close();
-				if (!myConn.isClosed()) myConn.close();
-			} catch (Exception e) {
-				System.out.println("DbDAO.checkId() error");
-				e.printStackTrace();
-			}
-		}
-		return result;
-	}
-	
-	public DbDTO memberGet(String id) {
-		DbDTO result = null;
-		try {
-			SQL = "SELECT * FROM `"+ TABLE + "` WHERE id=?";
-			myConn = DriverManager.getConnection(URL, USER, PASSWORD);
-			myPsmt = myConn.prepareStatement(SQL);
-			myPsmt.setString(1, id);
-			myRs = myPsmt.executeQuery();
-			if(myRs.next()) {
-				result = new DbDTO();
-				result.setName(myRs.getString("name"));
-				result.setId(myRs.getString("id"));
-				result.setPw(myRs.getString("pw"));
-				result.setEmail(myRs.getString("email"));
-				result.setDate(myRs.getTimestamp("date"));
-				result.setAddress(myRs.getString("address"));
-			}
-		} catch (Exception e) {
-			System.out.println("DbDAO.checkId() error");
-			e.printStackTrace();
-		} finally {
-			try {
-				if (!myRs.isClosed()) myRs.close();
-				if (!myPsmt.isClosed()) myPsmt.close();
-				if (!myConn.isClosed()) myConn.close();
-			} catch (Exception e) {
-				System.out.println("DbDAO.checkId() error");
-				e.printStackTrace();
-			}
-		}
-		return result;
-	}
-	
-	public int memberInsert(DbDTO dto) {
-		int i = 0;
-		try {
-			SQL = "INSERT INTO `"+ TABLE + "` (id, pw, name, email, date, address) VALUES (?, ?, ?, ?, ?, ?)";
-			myConn = DriverManager.getConnection(URL, USER, PASSWORD);
-			myPsmt = myConn.prepareStatement(SQL);
-			myPsmt.setString(1, dto.getId());
-			myPsmt.setString(2, dto.getPw());
-			myPsmt.setString(3, dto.getName());
-			myPsmt.setString(4, dto.getEmail());
-			myPsmt.setTimestamp(5, dto.getDate());
-			myPsmt.setString(6, dto.getAddress());
-			i = myPsmt.executeUpdate();
-		} catch (Exception e) {
-			System.out.println("DbDAO.memberInsert() error");
-			e.printStackTrace();
-		} finally {
-			try {
-				if (!myPsmt.isClosed()) myPsmt.close();
-				if (!myConn.isClosed()) myConn.close();
-			} catch (Exception e) {
-				System.out.println("DbDAO.memberInsert() error");
-				e.printStackTrace();
-			}
-		}
-		return i;
-	}
+  public int deleteContent(String bNumber) {
+    int result = 0;
+    try {
+      conn = DriverManager.getConnection(URL, USER, PASSWORD);
+      sql = "DELETE FROM `" + TABLE + "` WHERE bNumber=?";
+      psmt = conn.prepareStatement(sql);
+      psmt.setString(1, bNumber);
+      result = psmt.executeUpdate();
+    } catch (Exception e) {
+      System.out.println("BoardDAO.deleteContent() error");
+      e.printStackTrace();
+    } finally {
+      closeDAO();
+    }
+    return result;
+  }
 
-	public int memberUpdate(DbDTO dto) {
-		int i = 0;
-		try {
-			SQL = "UPDATE `"+ TABLE + "` set pw=?, name=?, email=?, address=? where id=?";
-			myConn = DriverManager.getConnection(URL, USER, PASSWORD);
-			myPsmt = myConn.prepareStatement(SQL);
-			myPsmt.setString(1, dto.getPw());
-			myPsmt.setString(2, dto.getName());
-			myPsmt.setString(3, dto.getEmail());
-			myPsmt.setString(4, dto.getAddress());
-			myPsmt.setString(5, dto.getId());
-			i = myPsmt.executeUpdate();
-		} catch (Exception e) {
-			System.out.println("DbDAO.memberUpdate() error");
-			e.printStackTrace();
-		} finally {
-			try {
-				if (!myPsmt.isClosed()) myPsmt.close();
-				if (!myConn.isClosed()) myConn.close();
-			} catch (Exception e) {
-				System.out.println("DbDAO.memberUpdate() error");
-				e.printStackTrace();
-			}
-		}
-		return i;
-	}
-	*/
+  public int replyContent(String bNumber, String bAuthor, String bTitle, String bContent) {
+    int result = 0;
+    int bGroup = 0;
+    int bStep = 0;
+    int bIndent = 0;
+    try {
+      conn = DriverManager.getConnection(URL, USER, PASSWORD);
+      sql = "SELECT * FROM `" + TABLE + "` WHERE bNumber=?";
+      psmt = conn.prepareStatement(sql);
+      psmt.setString(1, bNumber);
+      rs = psmt.executeQuery();
+      while(rs.next()) {
+        bGroup = rs.getInt("bGroup");
+        bStep = rs.getInt("bStep");
+        bIndent = rs.getInt("bIndent");
+      }
+      sql = "UPDATE `" + TABLE + "` SET bStep=bStep+1 WHERE bGroup=? AND bStep > ?";
+      psmt = conn.prepareStatement(sql);
+      psmt.setInt(1, bGroup);
+      psmt.setInt(2, bStep);
+      psmt.executeUpdate();
+      sql = "INSERT INTO `" + TABLE + "` (`bAuthor`, `bTitle`, `bContent`, `bDate`, `bHit`, `bGroup`, `bStep`, `bIndent`) VALUES (?, ?, ?, now(), 0, ?, ?, ?)";
+      psmt = conn.prepareStatement(sql);
+      psmt.setString(1, bAuthor);
+      psmt.setString(2, bTitle);
+      psmt.setString(3, bContent);
+      psmt.setInt(4, bGroup);
+      psmt.setInt(5, bStep+1);
+      psmt.setInt(6, bIndent+1);
+      result = psmt.executeUpdate();
+    } catch (Exception e) {
+      System.out.println("BoardDAO.replyContent() error");
+      e.printStackTrace();
+    } finally {
+      closeDAO();
+    }
+    return result;
+  }
 
 }

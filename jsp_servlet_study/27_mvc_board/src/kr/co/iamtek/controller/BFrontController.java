@@ -47,7 +47,13 @@ public class BFrontController extends HttpServlet {
 		String viewPage = null;
 		BCommand bcmd = null;
 
-		if(cmd.equals("/list.do")) {
+		if (cmd.equals("/new_view.do")) {
+		  viewPage = "new_view.jsp";
+    } else if (cmd.equals("/new_write.do")) {
+      bcmd = new BNewCommand();
+      bcmd.exectute(request, response);
+      viewPage = "list.do";
+    } else if(cmd.equals("/list.do")) {
 			bcmd = new BListCommand();
 			bcmd.exectute(request, response);
 			viewPage = "list.jsp";
@@ -59,17 +65,17 @@ public class BFrontController extends HttpServlet {
       bcmd = new BModifyCommand();
       bcmd.exectute(request, response);
       viewPage = "list.do";
-		} else if (cmd.equals("/write_view.do")) {
-			System.out.println("write_view");
-		} else if (cmd.equals("/write.do")) {
-			System.out.println("write");
 		} else if (cmd.equals("/delete.do")) {
-			System.out.println("delete");
+      bcmd = new BDeleteCommand();
+      bcmd.exectute(request, response);
+      viewPage = "list.do";
 		} else if (cmd.equals("/reply_view.do")) {
-			System.out.println("reply_view");
+      viewPage = "reply_view.jsp";
 		} else if (cmd.equals("/reply.do")) {
-			System.out.println("reply");
-		} else viewPage = "Gate.html";
+		  bcmd = new BReplyCommand();
+		  bcmd.exectute(request, response);
+		  viewPage = "list.do";
+		} else viewPage = "list.do";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
