@@ -369,3 +369,33 @@ Input/Output (hard)
 		readUTF() : 작동 안함, EOF 오류
 		writeUTF(문자열) : 문자열 쓰기
 		문자열 복사 잘 안됨, 한글 깨짐
+
+Thread
+	Process : CPU/Computer에서 구동되는 작업, Multi-process의 경우 동시에 복수 작업들을 구동.
+	Thread : Process 한개당 구성하는 작업, multi-thread의 경우 동시에 복수 작업들로 구성.
+	Java는 multi-thread를 지원함
+		형태 : 1(	many threads - 1 object), 2(1 thread - 1 object)
+		문법1 : runnable interface
+			public class ThreadTest1 implements Runnable {
+				public void run() {
+			    }
+			}
+			public class MainClass1 {
+			  public static void main(String[] args) {
+			    ThreadTest1 threadTest1 = new ThreadTest1();
+			    Thread thread = new Thread(threadTest1, "A");
+			    thread.start();
+			  }
+			}
+		문법2 : thread class inheritance
+			public class ThreadTest2 extends Thread {
+				public void run() {
+			    }
+			}
+			public class MainClass2 {
+			  public static void main(String[] args) {
+			    ThreadTest2 threadTest2 = new ThreadTest2();
+			    threadTest2.setName("B");
+			    threadTest2.start();
+			  }
+			}
