@@ -374,7 +374,11 @@ Thread
 	Process : CPU/Computer에서 구동되는 작업, Multi-process의 경우 동시에 복수 작업들을 구동.
 	Thread : Process 한개당 구성하는 작업, multi-thread의 경우 동시에 복수 작업들로 구성.
 	Java는 multi-thread를 지원함
-		형태 : 1(	many threads - 1 object), 2(1 thread - 1 object)
+		형태
+			many threads - 1 object, thread가 객체 데이터를 공유, (mixup)
+				Synchronized : 객체를 공유하는 thread는 순차적으로 실행.
+					public synchronized void run()
+			1 thread - 1 object, 객체 데이터가 공유 안됨.
 		문법1 : runnable interface
 			public class ThreadTest1 implements Runnable {
 				public void run() {

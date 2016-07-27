@@ -1,12 +1,12 @@
 package center.wiz.java3.java29_thread;
 
-public class ThreadTest3 implements Runnable {
+public class ThreadTest implements Runnable {
   
   int testNum = 0;
 
   @Override
   public void run() {
-    System.out.println("ThreadTest3 : " + Thread.currentThread().getName());
+    System.out.println("ThreadTest2 : " + Thread.currentThread().getName());
     for (int i = 0; i < 10; i++) {
       if (Thread.currentThread().getName().equals("A")) {
         System.out.println("=========================");
