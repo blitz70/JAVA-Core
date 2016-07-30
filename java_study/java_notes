@@ -403,3 +403,16 @@ Thread
 			    threadTest2.start();
 			  }
 			}
+
+GUI
+	Graphic User Interface : CUI(Character/Console User Interface)의 반대
+	AWT -> Swing -> JavaFX
+	Component : GUI 구성 요소, 버튼 텍스트필드 체크박스 등등
+	Container : component들을 담는/묶는 그릇
+	EventListener : 이벤트(뭔가 일어남)를 탐지하고 처리, 컴포넌트에 연결됨
+	API
+		pack() setSize() add() setVisible() dispose()
+	Ex
+		AWT : public class 그래픽 extends Frame {}
+		AWT + 이벤트 : public class 그래픽 extends Frame implements ActionListener{}
+		Swing + 이벤트 : public class 그래픽 extends JFrame implements ActionListener{}
