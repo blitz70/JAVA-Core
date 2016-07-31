@@ -355,7 +355,7 @@ Input/Output (hard)
 	General
 		Input : read, 읽기, 가져오기, 파일/키보드/네트워크상 데이터를 읽는다
 		Output : write, 쓰기, 내보내기, 파일/모니터/네트워크상에 데이터를 쓴다/출력/전송
-		Reader/Writer : 2byte, text string
+		Reader/Writer : 2byte, text string (study)
 		InputStream/OutputStream : 1byte, image & video, 권장
 		exception handling
 		close()로 연결 해제
@@ -416,3 +416,13 @@ GUI
 		AWT : public class 그래픽 extends Frame {}
 		AWT + 이벤트 : public class 그래픽 extends Frame implements ActionListener{}
 		Swing + 이벤트 : public class 그래픽 extends JFrame implements ActionListener{}
+		
+Network
+	InetAddress : host의 network 정보 조회
+	URLConnection
+	Socket
+	1:1 Chat app
+
+Project Chat app
+	many-many
+	GUI
