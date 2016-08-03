@@ -8,10 +8,10 @@ import java.net.Socket;
 
 public class MainChatS {
 
-	ServerSocket sSocket;
-	Socket socket;
-	PrintWriter writer;
-	BufferedReader reader;
+	ServerSocket sSocket = null;
+	Socket socket = null;
+	PrintWriter writer = null;
+	BufferedReader reader = null;
 	String data;
 	
 	public MainChatS() {
@@ -29,19 +29,12 @@ public class MainChatS {
 					writer.write(data);
 					System.out.println("Input : " + data);
 				}
-				close();
+				if(writer != null) writer.close(); 
+				if(reader != null) reader.close(); 
+				if(socket != null) socket.close(); 
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-	}
-	
-	public void close() {
-		try {
-			if(writer != null) writer.close(); 
-			if(reader != null) reader.close(); 
-			if(socket != null) socket.close(); 
-		} catch (Exception e) {
 		}
 	}
 	

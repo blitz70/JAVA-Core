@@ -424,5 +424,6 @@ Network
 	1:1 Chat app
 
 Project Chat app
-	many-many
-	GUI
+	Client termination : ok
+	GUI : ok
+	many to many
