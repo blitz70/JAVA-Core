@@ -5,20 +5,23 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.HashMap;
+import java.util.Iterator;
 
 public class ChatThread extends Thread {
 
 	private int id = 0;
+	private HashMap<Integer, Socket> sockets = null;
 	private Socket socket = null;
 	private List list = null;
 	private PrintWriter writer = null;
 	private BufferedReader reader = null;
 	private String data;
-	
-	public ChatThread(int id, Socket socket, List list) {
+
+	public ChatThread(int id, HashMap<Integer, Socket> sockets, List list) {
 		super();
 		this.id = id;
-		this.socket = socket;
+		this.sockets = sockets;
 		this.list = list;
 	}
 
@@ -26,13 +29,17 @@ public class ChatThread extends Thread {
 	public void run() {
 		try {
 			list.add("Client(" + id + ") connected.");
-			writer = new PrintWriter(socket.getOutputStream(), true);
-			reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			reader = new BufferedReader(new InputStreamReader(sockets.get(id).getInputStream()));
 			while(true) {
 				try {
 					data = reader.readLine();
-					writer.println(data);
 					list.add("(" + id + ") :" + data);
+					Iterator<Integer> iterator = sockets.keySet().iterator();
+					while (iterator.hasNext()) {
+						socket = sockets.get(iterator.next());
+						writer = new PrintWriter(socket.getOutputStream(), true);
+						writer.println(data);
+					}
 				} catch (Exception e) {
 					list.add("Client(" + id + ")  disconnected.");
 					break;

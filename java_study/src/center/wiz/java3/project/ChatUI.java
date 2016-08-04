@@ -19,33 +19,9 @@ public class ChatUI extends Frame implements ActionListener{
 	private Panel panel;
 	private TextField text;
 	private Button btn;
-	private Label label; 
+	private Label label;
 	
-	public ChatUI(String type) {
-		if (type.equals("server")) {
-			setLayout(new BorderLayout());
-			list = new List();
-			panel = new Panel();
-			add(list, BorderLayout.CENTER);
-			add(panel, BorderLayout.SOUTH);
-			label = new Label("Server");
-			panel.add(label);
-		} else if (type.equals("client")) {
-			setLayout(new BorderLayout());
-			list = new List();
-			panel = new Panel();
-			add(list, BorderLayout.CENTER);
-			add(panel, BorderLayout.SOUTH);
-			label = new Label("Client");
-			text = new TextField(20);
-			btn = new Button("Chat");
-			panel.add(label);
-			panel.add(text);
-			panel.add(btn);
-			
-			btn.addActionListener(this);
-		}
-		
+	public ChatUI() {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {	//창 닫기 기능 활성화
@@ -54,9 +30,37 @@ public class ChatUI extends Frame implements ActionListener{
 				System.exit(0);
 			}
 		});
-		setSize(new Dimension(500, 500));
+	}
+	
+	public List serverUI() {
+		setLayout(new BorderLayout());
+		list = new List();
+		panel = new Panel();
+		add(list, BorderLayout.CENTER);
+		add(panel, BorderLayout.SOUTH);
+		label = new Label("Server");
+		panel.add(label);
+		setSize(new Dimension(300, 300));
 		setVisible(true);
-
+		return list;
+	}
+	
+	public List clientUI() {
+		setLayout(new BorderLayout());
+		list = new List();
+		panel = new Panel();
+		add(list, BorderLayout.CENTER);
+		add(panel, BorderLayout.SOUTH);
+		label = new Label("Client");
+		text = new TextField(20);
+		btn = new Button("Chat");
+		panel.add(label);
+		panel.add(text);
+		panel.add(btn);
+		btn.addActionListener(this);
+		setSize(new Dimension(300, 300));
+		setVisible(true);
+		return list;
 	}
 	
 	public void output(String out) {
@@ -66,17 +70,10 @@ public class ChatUI extends Frame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource().equals(btn)) {
-			//MainChatC.data = text.getText();
+			MainChatC.data = text.getText();
 			text.setText("");
 			btn.transferFocusBackward();
 		}
-		
 	}
 	
-	/*
-	public static void main(String[] args) {
-		ChatUI s = new ChatUI("server");
-		ChatUI c = new ChatUI("client");
-	}
-	*/
 }
