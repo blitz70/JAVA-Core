@@ -426,4 +426,6 @@ Network
 Project Chat app
 	Client termination : ok
 	GUI : ok
-	many to many : 싱크 안됨
+	many to many : ok
+		클라이언트 접속 종료시 다른 클라이언트 불안
+	한글 : 해결 못함

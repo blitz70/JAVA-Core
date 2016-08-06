@@ -21,8 +21,8 @@ public class MainChatS {
 			int id = 0;
 			while(true) {
 				sockets.put(id, sSocket.accept());
-				ChatThread chat = new ChatThread(id, sockets, list);
-		    chat.start();
+				SeverThread server = new SeverThread(id, sockets, list);
+		    server.start();
 				id ++;
 			}
 		} catch (Exception e) {
