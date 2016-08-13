@@ -410,6 +410,7 @@ GUI
 	Component : GUI 구성 요소, 버튼 텍스트필드 체크박스 등등
 	Container : component들을 담는/묶는 그릇
 	EventListener : 이벤트(뭔가 일어남)를 탐지하고 처리, 컴포넌트에 연결됨
+	한글처리 : Project Properties>Run/Debug Settings> -Dfile.encoding=MS949 추가
 	API
 		pack() setSize() add() setVisible() dispose()
 	Ex
@@ -424,8 +425,7 @@ Network
 	1:1 Chat app
 
 Project Chat app
-	Client termination : ok
-	GUI : ok
-	many to many : ok
-		클라이언트 접속 종료시 다른 클라이언트 불안
-	한글 : 해결 못함
+	Client termination
+	GUI
+	many to many
+	한글
