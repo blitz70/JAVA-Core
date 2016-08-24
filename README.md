@@ -2,7 +2,8 @@
 JAVA Core study
 <hr/>
 
-##1. Basics [(opentutorials.org)](https://opentutorials.org/course/1223 "Opentutorials.org")
+#Study
+>#1. Basics [(opentutorials.org)](https://opentutorials.org/course/1223 "Opentutorials.org")
 * Number & String
 * Variable
 * Constant
@@ -13,7 +14,7 @@ JAVA Core study
 * Input & Output
 * Array
 
-##2. Object oriented [(opentutorials.org)](https://opentutorials.org/course/1223 "Opentutorials.org")
+>#2. Object oriented [(opentutorials.org)](https://opentutorials.org/course/1223 "Opentutorials.org")
 * Object oriented programming
 * Member, Class, Instance & Object
 * Scope 
@@ -30,7 +31,7 @@ JAVA Core study
 * Generic
 * Collections Framework
 
-##3. Extra [(Seoul Wiz)](https://www.youtube.com/playlist?list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9 "Seoul Wiz") video 01-32, Korean
+>#3. Extra [(Seoul Wiz)](https://www.youtube.com/playlist?list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9 "Seoul Wiz") video 01-32, Korean
 * Class
 * Abstract
 * Interface
@@ -43,3 +44,15 @@ JAVA Core study
 * GUI, AWT & Swing
 * Network
 * Project - Chat
+
+<hr/>
+
+#My projects
+>#Chat
+* chatting application
+* many to many, GUI
+* got disconnection bugs..
+
+>#StockMarket
+* stock market application
+* Downloader
