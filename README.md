@@ -1,7 +1,9 @@
-#1. Java : java study
+# JAVA-Core
+JAVA Core study
+<hr/>
 
-> #java1 : basics [(opentutorials.org)](https://opentutorials.org/course/1223 "Opentutorials.org")
->* Number & String
+##1. Basics [(opentutorials.org)](https://opentutorials.org/course/1223 "Opentutorials.org")
+* Number & String
 * Variable
 * Constant
 * Operator
@@ -11,8 +13,8 @@
 * Input & Output
 * Array
 
->#java2 : object oriented [(opentutorials.org)](https://opentutorials.org/course/1223 "Opentutorials.org")
->* Object oriented programming
+##2. Object oriented [(opentutorials.org)](https://opentutorials.org/course/1223 "Opentutorials.org")
+* Object oriented programming
 * Member, Class, Instance & Object
 * Scope 
 * Constructor
@@ -28,8 +30,8 @@
 * Generic
 * Collections Framework
 
->#java3 : extra [(Seoul Wiz)](http://www.wiz.center/tag/java "Seoul Wiz")
->* Class
+##3. Extra [(Seoul Wiz)](https://www.youtube.com/playlist?list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9 "Seoul Wiz") video 01-32, Korean
+* Class
 * Abstract
 * Interface
 * Design pattern
@@ -41,21 +43,3 @@
 * GUI, AWT & Swing
 * Network
 * Project - Chat
-
-#2. JSP & Servlets : jsp_servlet study [(Seoul Wiz)](http://www.wiz.center/tag/jsp "Seoul Wiz")
->* Web intro : JSP & JSF [(luv2code)](http://www.luv2code.com/ "luv2code")
-* Dev environment
-* Servlet
-* JSP
-* Cookie & Session
-* Exception
-* Java Bean
-* JDBC
-* DBCP
-* App - member management
-* File upload
-* Expression Language
-* JSTL
-* Controller
-* Forwarding
-* App - MVC board
