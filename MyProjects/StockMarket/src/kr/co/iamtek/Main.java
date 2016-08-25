@@ -11,8 +11,10 @@ public class Main {
 //		GregorianCalendar start = new GregorianCalendar(2000, 1, 1);
 //		d.setStart(start);
 //		d.start();
-			Download d = new Download("abc", "2000-01-01", "2016-08-21");
-			d.dates();
+			//Downloader d = new Downloader("IBM", "1962-01-02", "2016-08-25");
+		Downloader d = new Downloader();
+			//d.info();
+			d.get();
 	}
 
 }
